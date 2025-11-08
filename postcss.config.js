@@ -1,7 +1,10 @@
 module.exports = {
   plugins: {
     tailwindcss: {
-      content: [ "./index.html", "./data.json" ],
+      content: [
+        "./index.html",
+        "./data.json"
+      ],
       theme: {
         darkMode: "class",
         extend: {
