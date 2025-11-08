@@ -3,7 +3,8 @@ module.exports = {
     tailwindcss: {
       content: [
         "./index.html",
-        "./data.json"
+        "./data.json",
+        "./script.js"
       ],
       theme: {
         darkMode: "class",
