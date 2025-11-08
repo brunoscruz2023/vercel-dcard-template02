@@ -3,7 +3,7 @@
   "profile": {
     "title": "Tranquil Touch Therapy",
     "description": "Massage Therapy & Wellness",
-    "background_image_url": "https://lh3.googleusercontent.com/aida-public/AB6AXuD2rITrwRmdISC0L78G73NihDhXAW2PRH-H6_9uFOq2h0KInT6DlGdCo9cdp8zRa3g1oN3e4lPd_ZW-8hficQEhBO-CuzO0pAmMJU9byOUC8PIRgBdzENG0r0vKUT6-Ko1jDV9EyJW8KBJUXOE6Zux26Xzpy3XaPaPF_uSkSswy7OUW7P16-kuctvg9u5WdJq3cIh6KZy7BQq_0zyTtbEG8NLSvEz_QpNt0rio8JJoXoFeaREkpGV17vJHvNwyugHhhDvXI5X9jzqha",
+    "background_image_url": "https://github.com/brunoscruz2023/vercel-dcard-template02/blob/324021ae76b789b416de0368d7ae579da8bb5ca4/template02.png",
     "address": "123 Serenity Street, Wellness City, WC 12345",
     "whatsapp": "5511912345678",
     "phone": "5511912345678"
@@ -91,4 +91,5 @@
   "layout": {
     "hero_height": "192px"
   }
+
 }
