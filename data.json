@@ -3,7 +3,7 @@
   "profile": {
     "title": "Tranquil Touch Therapy",
     "description": "Massage Therapy & Wellness",
-    "background_image_url": "https://github.com/brunoscruz2023/vercel-dcard-template02/blob/324021ae76b789b416de0368d7ae579da8bb5ca4/template02.png",
+    "background_image_url": "https://raw.githubusercontent.com/brunoscruz2023/vercel-dcard-template02/main/template02.png",
     "address": "123 Serenity Street, Wellness City, WC 12345",
     "whatsapp": "5511912345678",
     "phone": "5511912345678"
@@ -93,3 +93,4 @@
   }
 
 }
+
