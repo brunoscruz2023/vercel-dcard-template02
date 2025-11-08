@@ -4,45 +4,33 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Business Profile</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link rel="stylesheet" href="./style.css">
 <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
-            "primary": "var(--primary-color)",
-            "background-light": "var(--bg-light-color)",
-            "background-dark": "var(--bg-dark-color)",
+            "primary": "#001f3f",
+            "background-light": "#F5F5F5",
+            "background-dark": "#101010",
           },
           fontFamily: {
-            "display": ["var(--font-family)", "sans-serif"]
+            "display": ["Manrope", "sans-serif"]
           },
           borderRadius: {
-            "DEFAULT": "var(--border-radius-default)",
-            "lg": "var(--border-radius-button)",
-            "xl": "var(--border-radius-card)",
-            "full": "var(--border-radius-icon)"
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
           },
         },
       },
     }
   </script>
 <style>
-    :root {
-      --primary-color: #001f3f;
-      --bg-light-color: #F5F5F5;
-      --bg-dark-color: #101010;
-      --whatsapp-color: #25D366;
-      --font-family: "Manrope", sans-serif;
-      --border-radius-default: 0.25rem;
-      --border-radius-button: 0.5rem;
-      --border-radius-card: 0.75rem;
-      --border-radius-icon: 9999px;
-      --hero-height: 192px;
-    }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
       font-size: 24px;
@@ -83,9 +71,9 @@
       box-sizing: border-box;
     }
     #floating-logo-container.logo-round { border-radius: 50%; }
-    #floating-logo-container.logo-square { border-radius: var(--border-radius-card); }
-    #floating-logo-container.logo-landscape { width: 120px; height: 60px; border-radius: var(--border-radius-card); }
-    #floating-logo-container.logo-portrait { width: 60px; height: 120px; border-radius: var(--border-radius-card); }
+    #floating-logo-container.logo-square { border-radius: 0.75rem; }
+    #floating-logo-container.logo-landscape { width: 120px; height: 60px; border-radius: 0.75rem; }
+    #floating-logo-container.logo-portrait { width: 60px; height: 120px; border-radius: 0.75rem; }
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display">
@@ -96,14 +84,14 @@
 
   <div class="relative w-full max-w-md mx-auto flex flex-col min-h-screen group/design-root overflow-x-hidden main-card-container">
     <!-- Hero Section -->
-    <div id="hero-bg" class="relative w-full" style="height: var(--hero-height);">
+    <div id="hero-bg" class="relative w-full" style="height: 192px;">
       <div id="hero-bg-inner" class="h-full w-full bg-cover bg-center"></div>
       <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 p-1 bg-background-light dark:bg-background-dark rounded-full">
         <div id="logo-placeholder" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-background-light dark:border-background-dark"></div>
       </div>
     </div>
     <!-- Main Content Wrapper -->
-    <div class="flex-grow bg-background-light dark:bg-background-dark" style="margin-top: 100px;">
+    <div class="flex-grow bg-background-light dark:bg-background-dark" style="padding-top: 100px;">
       <div class="pt-20 px-4 pb-8">
         <!-- Business Info -->
         <div class="text-center mb-6">
@@ -112,7 +100,7 @@
         </div>
         <!-- Action Buttons -->
         <div class="flex w-full gap-3 mb-8">
-          <a id="whatsapp-button" class="flex flex-1 items-center justify-center gap-2 rounded-lg h-12 px-4 text-white text-base font-bold" style="background-color: var(--whatsapp-color);">
+          <a id="whatsapp-button" class="flex flex-1 items-center justify-center gap-2 rounded-lg h-12 px-4 text-white text-base font-bold" style="background-color: #25D366;">
             <span class="material-symbols-outlined !text-2xl">sms</span>
             <span class="truncate">WhatsApp</span>
           </a>
@@ -157,22 +145,6 @@ document.addEventListener('DOMContentLoaded', function () {
       return response.json();
     })
     .then(data => {
-      // Apply Theme
-      const root = document.documentElement;
-      if (data.theme) {
-        root.style.setProperty('--primary-color', data.theme.colors.primary);
-        root.style.setProperty('--bg-light-color', data.theme.colors.background_light);
-        root.style.setProperty('--bg-dark-color', data.theme.colors.background_dark);
-        root.style.setProperty('--whatsapp-color', data.theme.colors.whatsapp);
-        root.style.setProperty('--font-family', data.theme.font_family);
-        root.style.setProperty('--border-radius-button', data.theme.border_radius.button);
-        root.style.setProperty('--border-radius-card', data.theme.border_radius.card);
-        root.style.setProperty('--border-radius-icon', data.theme.border_radius.icon);
-      }
-      if(data.layout) {
-        root.style.setProperty('--hero-height', `${data.layout.hero_height}px`);
-      }
-
       // Profile Data
       if (data.profile) {
         document.getElementById('profile-title').textContent = data.profile.title;
@@ -209,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Services List
       const servicesContainer = document.getElementById('services-list-container');
       if (servicesContainer && data.services) {
-        servicesContainer.innerHTML = '';
+        servicesContainer.innerHTML = ''; // Clear placeholder
         data.services.forEach((item, index) => {
           if (item.visible) {
             const serviceHtml = `
@@ -236,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const scheduleTitle = document.getElementById('schedule-title');
       if (scheduleContainer && data.schedule) {
         scheduleTitle.textContent = data.schedule.title;
-        scheduleContainer.innerHTML = '';
+        scheduleContainer.innerHTML = ''; // Clear placeholder
         data.schedule.days.forEach((item, index) => {
           const scheduleHtml = `
             <div class="flex justify-between py-2 ${index < data.schedule.days.length - 1 ? 'border-b border-gray-100 dark:border-gray-700' : ''}">
@@ -251,9 +223,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // Social Media Links
       const socialContainer = document.getElementById('social-links-container');
       if (socialContainer && data.social_media) {
-        socialContainer.innerHTML = '';
+        socialContainer.innerHTML = ''; // Clear placeholder
         data.social_media.forEach(item => {
           if (item.visible) {
+            // Assuming icons are named after the platform in lowercase
             const iconUrl = `https://lh3.googleusercontent.com/aida-public/AB6AXuCsphykBfCW4zKE8om-iFEUsArj1WvxEN-lZIos34wN4DpumMj54WcZOJZYYXiGGF0EwjTOFKj53tv2WNFiYdyMFHJEas_KE-wqeotW4_IxXbL_UUcjJJ-6OADCufdAo_LmWhNZ3B9YpPegVV-a3o7dWqzvLc6eiBHbsFMCTp7IW6fHCzkrlKY4HFwegECEPM4Igoiq-w572GcbkSwmnpD92uFSGvoHscQv5vLzOUV8qmTbQ9Ixs3lLxXIDxpO9Vzivxe7RU1xFGp5B`;
             const socialHtml = `
               <a class="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-white transition-colors hover:bg-primary/20 dark:hover:bg-white/20" href="${item.url}" target="_blank">
