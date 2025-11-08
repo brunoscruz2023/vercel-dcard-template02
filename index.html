@@ -1,117 +1,18 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Business Profile</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope wght@400;500;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<link rel="stylesheet" href="./style.css">
-<style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      font-size: 24px;
-    }
-    body {
-      min-height: max(884px, 100dvh);
-    }
-    .main-card-container {
-      width: 390px;
-      height: 844px;
-    }
-    @media (max-width: 640px) {
-      .main-card-container {
-        width: 100%;
-        height: 100dvh;
-        max-height: none;
-      }
-    }
-    #floating-logo-container {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 50;
-      width: 80px;
-      height: 80px;
-      transition: transform 0.2s ease-in-out;
-      overflow: hidden;
-    }
-    #floating-logo-container:hover {
-      transform: scale(1.1);
-    }
-    #floating-logo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background-color: white;
-      padding: 1px;
-      box-sizing: border-box;
-    }
-    #floating-logo-container.logo-round { border-radius: 50%; }
-    #floating-logo-container.logo-square { border-radius: 0.75rem; }
-    #floating-logo-container.logo-landscape { width: 120px; height: 60px; border-radius: 0.75rem; }
-    #floating-logo-container.logo-portrait { width: 60px; height: 120px; border-radius: 0.75rem; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tranquil Touch Therapy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-  <!-- Contêiner do Logo Flutuante -->
-  <div id="floating-logo-container" style="display: none;">
-    <img id="floating-logo" src="" alt="Logo">
-  </div>
-
-  <div class="relative w-full max-w-md mx-auto flex flex-col min-h-screen group/design-root overflow-x-hidden main-card-container">
-    <!-- Hero Section -->
-    <div id="hero-bg" class="relative w-full" style="height: 192px;">
-      <div id="hero-bg-inner" class="h-full w-full bg-cover bg-center"></div>
-      <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 p-1 bg-background-light dark:bg-background-dark rounded-full">
-        <div id="logo-placeholder" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-background-light dark:border-background-dark"></div>
-      </div>
-    </div>
-    <!-- Main Content Wrapper -->
-    <div class="flex-grow bg-background-light dark:bg-background-dark" style="padding-top: 100px;">
-      <div class="pt-20 px-4 pb-8">
-        <!-- Business Info -->
-        <div class="text-center mb-6">
-          <h1 id="profile-title" class="text-2xl font-bold text-gray-800 dark:text-white"></h1>
-          <p id="profile-description" class="text-base text-gray-500 dark:text-gray-400"></p>
-        </div>
-        <!-- Action Buttons -->
-        <div class="flex w-full gap-3 mb-8">
-          <a id="whatsapp-button" class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 text-white text-base font-bold leading-normal tracking-[0.015em] gap-2">
-            <span class="material-symbols-outlined">sms</span>
-            <span class="truncate">WhatsApp</span>
-          </a>
-          <a id="call-button" class="flex flex-1 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] gap-2">
-            <span class="material-symbols-outlined">call</span>
-            <span class="truncate">Call</span>
-          </a>
-        </div>
-        <!-- Services Section -->
-        <div class="mb-8">
-          <h2 class="text-xl font-bold text-gray-800 dark:text-white px-0 pb-3">Our Services</h2>
-          <div id="services-list-container" class="flex flex-col gap-1 bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
-            <!-- Services will be inserted here -->
-          </div>
-        </div>
-        <!-- Schedule Section -->
-        <div class="mb-8">
-          <h2 id="schedule-title" class="text-xl font-bold text-gray-800 dark:text-white px-0 pb-3">Business Hours</h2>
-          <div id="schedule-list-container" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 text-sm text-gray-600 dark:text-gray-300">
-            <!-- Schedule will be inserted here -->
-          </div>
-        </div>
-        <!-- Social Media Section -->
-        <div>
-          <h2 class="text-xl font-bold text-gray-800 dark:text-white px-0 pb-3">Follow Us</h2>
-          <div id="social-links-container" class="flex justify-center gap-4">
-            <!-- Social links will be inserted here -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<script src="./script.js" defer></script>
-
+<body>
+  <div id="floating-logo-container"></div>
+  <main class="main-card-container">
+    <div id="card-content"></div>
+  </main>
+  <script src="./script.js"></script>
 </body>
 </html>
