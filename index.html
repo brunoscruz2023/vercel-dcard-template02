@@ -94,10 +94,10 @@
     <img id="floating-logo" src="" alt="Logo">
   </div>
 
-  <div class="relative w-full max-w-md mx-auto flex flex-col min-h-screen group/design-root overflow-x-hidden">
+  <div class="relative w-full max-w-md mx-auto flex flex-col min-h-screen group/design-root overflow-x-hidden main-card-container">
     <!-- Hero Section -->
-    <div id="hero-bg" class="relative w-full" style="height: var(--hero-height);">
-      <div class="h-full w-full bg-cover bg-center"></div>
+    <div id="hero-bg" class="relative w-full">
+      <div id="hero-bg-inner" class="h-full w-full bg-cover bg-center" data-alt="Interior of a modern and serene massage therapy room with a massage bed and soft lighting."></div>
       <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 p-1 bg-background-light dark:bg-background-dark rounded-full">
         <div id="logo-placeholder" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-background-light dark:border-background-dark"></div>
       </div>
@@ -145,6 +145,7 @@
       </div>
     </div>
   </div>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -168,8 +169,11 @@ document.addEventListener('DOMContentLoaded', function () {
         root.style.setProperty('--border-radius-card', data.theme.border_radius.card);
         root.style.setProperty('--border-radius-icon', data.theme.border_radius.icon);
       }
-      if(data.layout) {
-        root.style.setProperty('--hero-height', `${data.layout.hero_height}px`);
+      
+      // CORREÇÃO: Aplicar altura e imagem de fundo diretamente via JavaScript
+      const heroBgContainer = document.getElementById('hero-bg');
+      if (heroBgContainer && data.layout) {
+        heroBgContainer.style.height = `${data.layout.hero_height}px`;
       }
 
       // Profile Data
@@ -177,7 +181,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('profile-title').textContent = data.profile.title;
         document.getElementById('profile-description').textContent = data.profile.description;
         if(data.profile.background_image_url) {
-          document.querySelector('#hero-bg .bg-cover').style.backgroundImage = `url('${data.profile.background_image_url}')`;
+          const heroBgElement = document.getElementById('hero-bg-inner');
+          if(heroBgElement) {
+            heroBgElement.style.backgroundImage = `url('${data.profile.background_image_url}')`;
+          }
         }
         if (data.profile.phone) {
           document.getElementById('call-button').href = `tel:${data.profile.phone}`;
@@ -197,7 +204,6 @@ document.addEventListener('DOMContentLoaded', function () {
           logoImage.src = data.logo.url;
           logoContainer.className = `logo-${data.logo.shape}`;
           logoContainer.style.display = 'block';
-          // Also update the placeholder logo
           if(logoPlaceholder) {
             logoPlaceholder.style.backgroundImage = `url('${data.logo.url}')`;
           }
@@ -209,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Services List
       const servicesContainer = document.getElementById('services-list-container');
       if (servicesContainer && data.services) {
-        servicesContainer.innerHTML = ''; // Clear placeholder
+        servicesContainer.innerHTML = '';
         data.services.forEach((item, index) => {
           if (item.visible) {
             const serviceHtml = `
@@ -236,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const scheduleTitle = document.getElementById('schedule-title');
       if (scheduleContainer && data.schedule) {
         scheduleTitle.textContent = data.schedule.title;
-        scheduleContainer.innerHTML = ''; // Clear placeholder
+        scheduleContainer.innerHTML = '';
         data.schedule.days.forEach((item, index) => {
           const scheduleHtml = `
             <div class="flex justify-between py-2 ${index < data.schedule.days.length - 1 ? 'border-b border-gray-100 dark:border-gray-700' : ''}">
@@ -251,7 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Social Media Links
       const socialContainer = document.getElementById('social-links-container');
       if (socialContainer && data.social_media) {
-        socialContainer.innerHTML = ''; // Clear placeholder
+        socialContainer.innerHTML = '';
         data.social_media.forEach(item => {
           if (item.visible) {
             // Assuming icons are named after the platform in lowercase
