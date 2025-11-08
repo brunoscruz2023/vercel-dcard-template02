@@ -1,0 +1,94 @@
+{
+  "_comment_profile": "Seção para informações principais do perfil e contatos.",
+  "profile": {
+    "title": "Tranquil Touch Therapy",
+    "description": "Massage Therapy & Wellness",
+    "background_image_url": "https://lh3.googleusercontent.com/aida-public/AB6AXuD2rITrwRmdISC0L78G73NihDhXAW2PRH-H6_9uFOq2h0KInT6DlGdCo9cdp8zRa3g1oN3e4lPd_ZW-8hficQEhBO-CuzO0pAmMJU9byOUC8PIRgBdzENG0r0vKUT6-Ko1jDV9EyJW8KBJUXOE6Zux26Xzpy3XaPaPF_uSkSswy7OUW7P16-kuctvg9u5WdJq3cIh6KZy7BQq_0zyTtbEG8NLSvEz_QpNt0rio8JJoXoFeaREkpGV17vJHvNwyugHhhDvXI5X9jzqha",
+    "address": "123 Serenity Street, Wellness City, WC 12345",
+    "whatsapp": "5511912345678",
+    "phone": "5511912345678"
+  },
+  "_comment_logo": "Configuração do logo flutuante (visibilidade, formato e URL).",
+  "logo": {
+    "shape_options": "round, square, landscape, portrait",
+    "visible": true,
+    "shape": "round",
+    "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCraNph7yvxuXM898VYF0HxJ2Lh5BD19KkSAG_47yqhB8Rzu6oYfTd68kFi-JyzP81WWrbRCsbOxGVMF_SUyUdPVWQQFoRVcIrkHKUXQZXmmqOjcpt-ET2j38l8DUONfV9RISk4QXwqfaJ40s0AqKYR3ft7KBtYmLfozBNfJJoPVOrlobDpOUW__WnyyGywm6KxgXGYh5zqPntfXo2QhcmU3FochosSOzMCHuWJz719BK-ZO2poMaUKXQOePzYIUS5wSg4VpUk1WS-l"
+  },
+  "_comment_services": "Lista de serviços. Cada item pode ser ocultado com 'visible: false'.",
+  "services": [
+    {
+      "title": "Deep Tissue Massage",
+      "description": "A focused massage to relieve chronic muscle tension.",
+      "icon": "self_improvement",
+      "visible": true
+    },
+    {
+      "title": "Swedish Relaxation",
+      "description": "Gentle, flowing strokes to promote calm and well-being.",
+      "icon": "spa",
+      "visible": true
+    },
+    {
+      "title": "Sports Massage",
+      "description": "Aimed at athletes to prevent and treat injuries.",
+      "icon": "sports_soccer",
+      "visible": true
+    }
+  ],
+  "_comment_schedule": "Seção de horário de funcionamento. Permite personalizar dias e horas.",
+  "schedule": {
+    "title": "Business Hours",
+    "days": [
+      {
+        "day": "Monday - Friday",
+        "hours": "9:00 AM - 6:00 PM"
+      },
+      {
+        "day": "Saturday",
+        "hours": "10:00 AM - 4:00 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "Closed"
+      }
+    ]
+  },
+  "_comment_social_media": "Lista de redes sociais. Cada rede pode ser ocultada com 'visible: false'.",
+  "social_media": [
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/tranquiltouch",
+      "visible": true
+    },
+    {
+      "platform": "facebook",
+      "url": "https://www.facebook.com/tranquiltouch",
+      "visible": true
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/tranquiltouch",
+      "visible": true
+    }
+  ],
+  "_comment_theme": "Configurações visuais do template (cores, fontes, bordas).",
+  "theme": {
+    "colors": {
+      "primary": "#001f3f",
+      "background_light": "#F5F5F5",
+      "background_dark": "#101010",
+      "whatsapp": "#25D366"
+    },
+    "font_family": "Manrope",
+    "border_radius": {
+      "button": "0.5rem",
+      "card": "0.75rem",
+      "icon": "9999px"
+    }
+  },
+  "_comment_layout": "Configurações de layout e dimensões.",
+  "layout": {
+    "hero_height": "192px"
+  }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "var(--primary-color)",
+            "background-light": "var(--bg-light-color)",
+            "background-dark": "var(--bg-dark-color)",
+          },
+          fontFamily: {
+            "display": ["var(--font-family)", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "var(--border-radius-default)",
+            "lg": "var(--border-radius-button)",
+            "xl": "var(--border-radius-card)",
+            "full": "var(--border-radius-icon)"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    :root {
+      --primary-color: #001f3f;
+      --bg-light-color: #F5F5F5;
+      --bg-dark-color: #101010;
+      --whatsapp-color: #25D366;
+      --font-family: "Manrope", sans-serif;
+      --border-radius-default: 0.25rem;
+      --border-radius-button: 0.5rem;
+      --border-radius-card: 0.75rem;
+      --border-radius-icon: 9999px;
+      --hero-height: 192px;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    .main-card-container {
+      width: 390px;
+      height: 844px;
+    }
+    @media (max-width: 640px) {
+      .main-card-container {
+        width: 100%;
+        height: 100dvh;
+        max-height: none;
+      }
+    }
+    #floating-logo-container {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 50;
+      width: 80px;
+      height: 80px;
+      transition: transform 0.2s ease-in-out;
+      overflow: hidden;
+    }
+    #floating-logo-container:hover {
+      transform: scale(1.1);
+    }
+    #floating-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-color: white;
+      padding: 1px;
+      box-sizing: border-box;
+    }
+    #floating-logo-container.logo-round { border-radius: 50%; }
+    #floating-logo-container.logo-square { border-radius: var(--border-radius-card); }
+    #floating-logo-container.logo-landscape { width: 120px; height: 60px; border-radius: var(--border-radius-card); }
+    #floating-logo-container.logo-portrait { width: 60px; height: 120px; border-radius: var(--border-radius-card); }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <!-- Contêiner do Logo Flutuante -->
+  <div id="floating-logo-container" style="display: none;">
+    <img id="floating-logo" src="" alt="Logo">
+  </div>
+
+  <div class="relative w-full max-w-md mx-auto flex flex-col min-h-screen group/design-root overflow-x-hidden">
+    <!-- Hero Section -->
+    <div id="hero-bg" class="relative w-full" style="height: var(--hero-height);">
+      <div class="h-full w-full bg-cover bg-center"></div>
+      <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 p-1 bg-background-light dark:bg-background-dark rounded-full">
+        <div id="logo-placeholder" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-background-light dark:border-background-dark"></div>
+      </div>
+    </div>
+    <!-- Main Content Wrapper -->
+    <div class="flex-grow bg-background-light dark:bg-background-dark">
+      <div class="pt-20 px-4 pb-8">
+        <!-- Business Info -->
+        <div class="text-center mb-6">
+          <h1 id="profile-title" class="text-2xl font-bold text-gray-800 dark:text-white"></h1>
+          <p id="profile-description" class="text-base text-gray-500 dark:text-gray-400"></p>
+        </div>
+        <!-- Action Buttons -->
+        <div class="flex w-full gap-3 mb-8">
+          <a id="whatsapp-button" class="flex flex-1 items-center justify-center gap-2 rounded-lg h-12 px-4 text-white text-base font-bold" style="background-color: var(--whatsapp-color);">
+            <span class="material-symbols-outlined !text-2xl">sms</span>
+            <span class="truncate">WhatsApp</span>
+          </a>
+          <a id="call-button" class="flex flex-1 items-center justify-center gap-2 rounded-lg h-12 px-4 bg-primary text-white text-base font-bold">
+            <span class="material-symbols-outlined !text-2xl">call</span>
+            <span class="truncate">Call</span>
+          </a>
+        </div>
+        <!-- Services Section -->
+        <div class="mb-8">
+          <h2 class="text-xl font-bold text-gray-800 dark:text-white px-0 pb-3">Our Services</h2>
+          <div id="services-list-container" class="flex flex-col gap-1 bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
+            <!-- Services will be inserted here -->
+          </div>
+        </div>
+        <!-- Schedule Section -->
+        <div class="mb-8">
+          <h2 id="schedule-title" class="text-xl font-bold text-gray-800 dark:text-white px-0 pb-3"></h2>
+          <div id="schedule-list-container" class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-4 text-sm text-gray-600 dark:text-gray-300">
+            <!-- Schedule will be inserted here -->
+          </div>
+        </div>
+        <!-- Social Media Section -->
+        <div>
+          <h2 class="text-xl font-bold text-gray-800 dark:text-white px-0 pb-3">Follow Us</h2>
+          <div id="social-links-container" class="flex justify-center gap-4">
+            <!-- Social links will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('data.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao carregar o arquivo data.json");
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Apply Theme
+      const root = document.documentElement;
+      if (data.theme) {
+        root.style.setProperty('--primary-color', data.theme.colors.primary);
+        root.style.setProperty('--bg-light-color', data.theme.colors.background_light);
+        root.style.setProperty('--bg-dark-color', data.theme.colors.background_dark);
+        root.style.setProperty('--whatsapp-color', data.theme.colors.whatsapp);
+        root.style.setProperty('--font-family', data.theme.font_family);
+        root.style.setProperty('--border-radius-button', data.theme.border_radius.button);
+        root.style.setProperty('--border-radius-card', data.theme.border_radius.card);
+        root.style.setProperty('--border-radius-icon', data.theme.border_radius.icon);
+      }
+      if(data.layout) {
+        root.style.setProperty('--hero-height', `${data.layout.hero_height}px`);
+      }
+
+      // Profile Data
+      if (data.profile) {
+        document.getElementById('profile-title').textContent = data.profile.title;
+        document.getElementById('profile-description').textContent = data.profile.description;
+        if(data.profile.background_image_url) {
+          document.querySelector('#hero-bg .bg-cover').style.backgroundImage = `url('${data.profile.background_image_url}')`;
+        }
+        if (data.profile.phone) {
+          document.getElementById('call-button').href = `tel:${data.profile.phone}`;
+        }
+        if (data.profile.whatsapp) {
+          document.getElementById('whatsapp-button').href = `https://wa.me/${data.profile.whatsapp}`;
+          document.getElementById('whatsapp-button').target = '_blank';
+        }
+      }
+      
+      // Logo
+      const logoContainer = document.getElementById('floating-logo-container');
+      const logoImage = document.getElementById('floating-logo');
+      const logoPlaceholder = document.getElementById('logo-placeholder');
+      if (logoContainer && logoImage && data.logo) {
+        if (data.logo.visible) {
+          logoImage.src = data.logo.url;
+          logoContainer.className = `logo-${data.logo.shape}`;
+          logoContainer.style.display = 'block';
+          // Also update the placeholder logo
+          if(logoPlaceholder) {
+            logoPlaceholder.style.backgroundImage = `url('${data.logo.url}')`;
+          }
+        } else {
+          logoContainer.style.display = 'none';
+        }
+      }
+
+      // Services List
+      const servicesContainer = document.getElementById('services-list-container');
+      if (servicesContainer && data.services) {
+        servicesContainer.innerHTML = ''; // Clear placeholder
+        data.services.forEach((item, index) => {
+          if (item.visible) {
+            const serviceHtml = `
+              <div class="flex items-center gap-4 p-4 min-h-[72px] justify-between">
+                <div class="flex items-center gap-4">
+                  <div class="text-primary dark:text-white flex items-center justify-center rounded-lg bg-primary/10 dark:bg-white/10 shrink-0 size-12">
+                    <span class="material-symbols-outlined">${item.icon}</span>
+                  </div>
+                  <div class="flex flex-col justify-center">
+                    <p class="text-base font-medium text-gray-800 dark:text-gray-100 line-clamp-1">${item.title}</p>
+                    <p class="text-sm font-normal text-gray-500 dark:text-gray-400 line-clamp-2">${item.description}</p>
+                  </div>
+                </div>
+              </div>
+              ${index < data.services.length - 1 ? '<hr class="border-gray-200 dark:border-gray-700 mx-4"/>' : ''}
+            `;
+            servicesContainer.innerHTML += serviceHtml;
+          }
+        });
+      }
+
+      // Schedule List
+      const scheduleContainer = document.getElementById('schedule-list-container');
+      const scheduleTitle = document.getElementById('schedule-title');
+      if (scheduleContainer && data.schedule) {
+        scheduleTitle.textContent = data.schedule.title;
+        scheduleContainer.innerHTML = ''; // Clear placeholder
+        data.schedule.days.forEach((item, index) => {
+          const scheduleHtml = `
+            <div class="flex justify-between py-2 ${index < data.schedule.days.length - 1 ? 'border-b border-gray-100 dark:border-gray-700' : ''}">
+              <span class="font-medium text-gray-800 dark:text-gray-100">${item.day}</span>
+              <span>${item.hours}</span>
+            </div>
+          `;
+          scheduleContainer.innerHTML += scheduleHtml;
+        });
+      }
+
+      // Social Media Links
+      const socialContainer = document.getElementById('social-links-container');
+      if (socialContainer && data.social_media) {
+        socialContainer.innerHTML = ''; // Clear placeholder
+        data.social_media.forEach(item => {
+          if (item.visible) {
+            // Assuming icons are named after the platform in lowercase
+            const iconUrl = `https://lh3.googleusercontent.com/aida-public/AB6AXuCsphykBfCW4zKE8om-iFEUsArj1WvxEN-lZIos34wN4DpumMj54WcZOJZYYXiGGF0EwjTOFKj53tv2WNFiYdyMFHJEas_KE-wqeotW4_IxXbL_UUcjJJ-6OADCufdAo_LmWhNZ3B9YpPegVV-a3o7dWqzvLc6eiBHbsFMCTp7IW6fHCzkrlKY4HFwegECEPM4Igoiq-w572GcbkSwmnpD92uFSGvoHscQv5vLzOUV8qmTbQ9Ixs3lLxXIDxpO9Vzivxe7RU1xFGp5B`;
+            const socialHtml = `
+              <a class="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-white transition-colors hover:bg-primary/20 dark:hover:bg-white/20" href="${item.url}" target="_blank">
+                <img alt="${item.platform} logo" class="dark:invert" src="${iconUrl}">
+              </a>
+            `;
+            socialContainer.innerHTML += socialHtml;
+          }
+        });
+      }
+    })
+    .catch(error => console.error('Falha na execução:', error));
+});
+</script>
+
+</body>
+</html>
