@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('call-button').href = `tel:${data.profile.phone}`;
         }
         if (data.profile.whatsapp) {
-          document.getElementById('whatsapp-button').href = `https://wa.me/${data.profile.whatsapp}`;
+          document.getElementById('whatsapp-button').href = `\nhttps://wa.me/${data.profile.whatsapp}`;
           document.getElementById('whatsapp-button').target = '_blank';
         }
       }
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
               `</div>`
             ];
 
-            const serviceHtml = serviceParts.join('');
+            const serviceHtml = serviceParts.join('\n');
             servicesContainer.innerHTML += serviceHtml;
 
             if (index < data.services.length - 1) {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
               `</div>`
           ];
 
-          const scheduleHtml = scheduleParts.join('');
+          const scheduleHtml = scheduleParts.join('\n');
           scheduleContainer.innerHTML += scheduleHtml;
         });
       }
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
               `</a>`
             ];
 
-            const socialHtml = socialParts.join('');
+            const socialHtml = socialParts.join('\n');
             socialContainer.innerHTML += socialHtml;
           }
         });
