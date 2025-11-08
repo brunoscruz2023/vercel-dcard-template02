@@ -96,14 +96,14 @@
 
   <div class="relative w-full max-w-md mx-auto flex flex-col min-h-screen group/design-root overflow-x-hidden main-card-container">
     <!-- Hero Section -->
-    <div id="hero-bg" class="relative w-full">
-      <div id="hero-bg-inner" class="h-full w-full bg-cover bg-center" data-alt="Interior of a modern and serene massage therapy room with a massage bed and soft lighting."></div>
+    <div id="hero-bg" class="relative w-full" style="height: var(--hero-height);">
+      <div id="hero-bg-inner" class="h-full w-full bg-cover bg-center"></div>
       <div class="absolute -bottom-16 left-1/2 -translate-x-1/2 p-1 bg-background-light dark:bg-background-dark rounded-full">
         <div id="logo-placeholder" class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-4 border-background-light dark:border-background-dark"></div>
       </div>
     </div>
     <!-- Main Content Wrapper -->
-    <div class="flex-grow bg-background-light dark:bg-background-dark">
+    <div class="flex-grow bg-background-light dark:bg-background-dark" style="margin-top: 100px;">
       <div class="pt-20 px-4 pb-8">
         <!-- Business Info -->
         <div class="text-center mb-6">
@@ -169,11 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
         root.style.setProperty('--border-radius-card', data.theme.border_radius.card);
         root.style.setProperty('--border-radius-icon', data.theme.border_radius.icon);
       }
-      
-      // CORREÇÃO: Aplicar altura e imagem de fundo diretamente via JavaScript
-      const heroBgContainer = document.getElementById('hero-bg');
-      if (heroBgContainer && data.layout) {
-        heroBgContainer.style.height = `${data.layout.hero_height}px`;
+      if(data.layout) {
+        root.style.setProperty('--hero-height', `${data.layout.hero_height}px`);
       }
 
       // Profile Data
@@ -181,10 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('profile-title').textContent = data.profile.title;
         document.getElementById('profile-description').textContent = data.profile.description;
         if(data.profile.background_image_url) {
-          const heroBgElement = document.getElementById('hero-bg-inner');
-          if(heroBgElement) {
-            heroBgElement.style.backgroundImage = `url('${data.profile.background_image_url}')`;
-          }
+          document.querySelector('#hero-bg-inner').style.backgroundImage = `url('${data.profile.background_image_url}')`;
         }
         if (data.profile.phone) {
           document.getElementById('call-button').href = `tel:${data.profile.phone}`;
@@ -260,7 +254,6 @@ document.addEventListener('DOMContentLoaded', function () {
         socialContainer.innerHTML = '';
         data.social_media.forEach(item => {
           if (item.visible) {
-            // Assuming icons are named after the platform in lowercase
             const iconUrl = `https://lh3.googleusercontent.com/aida-public/AB6AXuCsphykBfCW4zKE8om-iFEUsArj1WvxEN-lZIos34wN4DpumMj54WcZOJZYYXiGGF0EwjTOFKj53tv2WNFiYdyMFHJEas_KE-wqeotW4_IxXbL_UUcjJJ-6OADCufdAo_LmWhNZ3B9YpPegVV-a3o7dWqzvLc6eiBHbsFMCTp7IW6fHCzkrlKY4HFwegECEPM4Igoiq-w572GcbkSwmnpD92uFSGvoHscQv5vLzOUV8qmTbQ9Ixs3lLxXIDxpO9Vzivxe7RU1xFGp5B`;
             const socialHtml = `
               <a class="flex items-center justify-center h-12 w-12 rounded-full bg-primary/10 dark:bg-white/10 text-primary dark:text-white transition-colors hover:bg-primary/20 dark:hover:bg-white/20" href="${item.url}" target="_blank">
