@@ -136,16 +136,15 @@
                     padding: 20px 0 40px 0;
                 }
                 
-                /* --- ESTILOS DO CONTEÚDO (COM MELHORIA NOS SERVIÇOS) --- */
+                /* --- ESTILOS DO CONTEÚDO (COM ESPAÇAMENTO REDUZIDO) --- */
                 
                 .section-title {
                     text-align: center;
                     font-size: 1.8rem;
-                    margin-bottom: 25px;
+                    margin-bottom: 12px; /* ALTERADO: de 25px para 12px */
                     color: ${theme.colors.text};
                 }
                 
-                /* MELHORIA: Layout horizontal para os cards de serviço */
                 .services {
                     display: flex;
                     flex-direction: column;
@@ -159,9 +158,9 @@
                     padding: 20px;
                     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    display: flex; /* Muda para flexbox */
-                    align-items: center; /* Alinha ícone e texto verticalmente */
-                    gap: 20px; /* Espaço entre ícone e texto */
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
                 }
                 
                 .service-card:hover {
@@ -172,17 +171,16 @@
                 .service-icon {
                     font-size: 2rem;
                     color: ${theme.colors.primary};
-                    flex-shrink: 0; /* Impede que o ícone encolha */
+                    flex-shrink: 0;
                 }
                 
-                /* NOVA CLASSE para o container de texto */
                 .service-text {
-                    text-align: left; /* Alinha o texto à esquerda */
+                    text-align: left;
                 }
 
                 .service-title {
                     font-size: 1.3rem;
-                    margin-bottom: 8px; /* Reduz o espaço entre título e descrição */
+                    margin-bottom: 8px;
                     color: ${theme.colors.text};
                 }
                 
@@ -201,7 +199,7 @@
                 
                 .schedule-title {
                     font-size: 1.5rem;
-                    margin-bottom: 15px;
+                    margin-bottom: 7px; /* ALTERADO: de 15px para 7px */
                     color: ${theme.colors.text};
                 }
                 
@@ -276,7 +274,7 @@
             styleTag.innerHTML = css;
         }
 
-        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (COM HTML ATUALIZADO)
+        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
         function buildPage(data) {
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
@@ -300,14 +298,13 @@
             // 3. Montar o Info Frame
             const infoFrame = document.getElementById('info-frame');
             
-            // Construir a seção de serviços com NOVO HTML
+            // Construir a seção de serviços
             const servicesHtml = `
                 <h2 class="section-title">${data.content.services_title}</h2>
                 <div class="services">
                     ${data.services.map(service => `
                         <div class="service-card">
                             <div class="service-icon"><i class="${service.icon}"></i></div>
-                            <!-- NOVO CONTAINER PARA O TEXTO -->
                             <div class="service-text">
                                 <h3 class="service-title">${service.title}</h3>
                                 <p class="service-description">${service.description}</p>
