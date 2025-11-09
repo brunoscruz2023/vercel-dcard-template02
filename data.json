@@ -3,7 +3,7 @@
     "name": "Tranquil Touch Therapy",
     "tagline": "Massage Therapy & Wellness",
     "hero_image": "template02.png",
-    "logo_image": "/logo_CODEI9_150_150.png",
+    "logo_image": "./logo_CODEI9_150_150.png",
     "contact": {
       "whatsapp": "5511912345678",
       "phone": "5511912345678"
@@ -66,6 +66,7 @@
     }
   }
 }
+
 
 
 
