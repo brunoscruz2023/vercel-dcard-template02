@@ -93,7 +93,7 @@
                     margin-top: -50px; /* Margem negativa para sobrepor o hero */
                     text-align: center;
                     position: relative;
-                    z-index: 5; /* Fica acima do hero */
+                    z-index:5; /* Fica acima do hero */
                 }
 
                 /* NOVAS CLASSES PARA O CONTAINER E FORMATOS DA LOGO */
@@ -103,6 +103,7 @@
                     margin: 0 auto; /* Centraliza o container */
                     overflow: hidden; /* Garante que a imagem não vaze do formato */
                     box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sutil para dar destaque */
+                    background-color: ${theme.colors.card_background}; /* FUNDO COLORIDO APLICADO AQUI */
                 }
 
                 .logo-shape-round { border-radius: 50%; }
@@ -128,7 +129,7 @@
                 /* FRAME DE INFORMAÇÕES */
                 #logo-frame {
                     padding: 30px 15px;
-                    margin-top: 20px;
+                    margin-top:20px;
                     text-align: center;
                 }
 
@@ -317,7 +318,7 @@
             styleTag.innerHTML = css;
         }
 
-        // FUNÇÃO PARA MONTAR A PÁGINA (ATUALIZADA COM A NOVA ESTRUTURA DE LOGO)
+        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
         function buildPage(data) {
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
