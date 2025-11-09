@@ -73,7 +73,13 @@
                     min-height: 100vh;
                 }
                 
-                /* A regra .header agora se aplica à nova tag criada pelo JS */
+                /* INÍCIO DA CORREÇÃO: Força o container do hero a ocupar espaço */
+                #hero-section {
+                    position: static; /* Reseta qualquer posicionamento absoluto */
+                    width: 100%;
+                }
+                /* FIM DA CORREÇÃO */
+                
                 .header {
                     position: relative;
                     height: 250px;
@@ -276,7 +282,6 @@
         function buildHeader(profile) {
             const heroSection = document.getElementById('hero-section');
             heroSection.innerHTML = `
-                <!-- INÍCIO DA ALTERAÇÃO: Novo <header> com a classe .header -->
                 <header class="header">
                     <img src="${profile.hero_image}" alt="Imagem de destaque" class="header-image">
                     <div class="header-overlay">
@@ -292,7 +297,6 @@
                         </div>
                     </div>
                 </header>
-                <!-- FIM DA ALTERAÇÃO -->
             `;
         }
         
