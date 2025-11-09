@@ -73,12 +73,11 @@
                     min-height: 100vh;
                 }
                 
-                /* INÍCIO DA CORREÇÃO: Força o container do hero a ocupar espaço */
+                /* CORREÇÃO AGRESSIVA: Força o container do hero a ocupar espaço */
                 #hero-section {
-                    position: static; /* Reseta qualquer posicionamento absoluto */
+                    position: static !important; /* Sobrescreve qualquer regra conflitante */
                     width: 100%;
                 }
-                /* FIM DA CORREÇÃO */
                 
                 .header {
                     position: relative;
