@@ -103,7 +103,9 @@
                     margin: 0 auto; /* Centraliza o container */
                     overflow: hidden; /* Garante que a imagem não vaze do formato */
                     box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sutil para dar destaque */
-                    background-color: ${theme.colors.card_background}; /* FUNDO COLORIDO APLICADO AQUI */
+                    background-color: ${theme.colors.card_background}; /* FUNDO COLORIDO */
+                    padding: 5px; /* ADICIONADO: Espaço para a borda de fundo aparecer */
+                    box-sizing: border-box; /* ADICIONADO: Mantém o tamanho total de 150px */
                 }
 
                 .logo-shape-round { border-radius: 50%; }
