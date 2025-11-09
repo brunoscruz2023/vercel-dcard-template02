@@ -10,41 +10,40 @@
     <style id="dynamic-styles"></style>
 </head>
 <body>
-    <!-- Cabeçalho (Seção Hero) - O container principal -->
-    <header id="hero-section">
-        <!-- O conteúdo será gerado pelo JavaScript -->
-    </header>
+    <!-- NOVA ESTRUTURA DE FRAMES -->
     
-    <!-- Conteúdo Principal -->
-    <main id="main-content">
-        <!-- O conteúdo será gerado pelo JavaScript -->
-    </main>
-    
-    <!-- Rodapé -->
-    <footer id="footer-section">
-        <!-- O conteúdo será gerado pelo JavaScript -->
-    </footer>
+    <!-- Frame 1: Hero com imagem de fundo -->
+    <div id="hero-frame">
+        <!-- Conteúdo gerado via CSS (background-image) -->
+    </div>
+
+    <!-- Frame 2: Logo e informações de contato (sobrepondo o hero) -->
+    <div id="logo-frame">
+        <!-- Conteúdo gerado pelo JavaScript -->
+    </div>
+
+    <!-- Frame 3: Conteúdo principal (serviços, horário, rodapé) -->
+    <div id="info-frame">
+        <!-- Conteúdo gerado pelo JavaScript -->
+    </div>
 
     <script>
         // Função principal para inicializar a aplicação
         async function initializeApp() {
             try {
-                // 1. Carregar os dados do arquivo data.json
                 const response = await fetch('data.json');
                 if (!response.ok) {
                     throw new Error(`Erro ao carregar o data.json: ${response.statusText}`);
                 }
                 const data = await response.json();
 
-                // 2. Aplicar o tema e estilos dinâmicos
+                // Aplica o tema e estilos dinâmicos
                 applyTheme(data.theme);
 
-                // 3. Construir as seções da página com os dados
-                buildHeader(data.profile);
-                buildMainContent(data.content, data.services, data.schedule);
-                buildFooter(data.footer, data.social);
+                // Constrói a página com os dados na nova estrutura
+                buildPage(data);
 
-                // 4. Atualizar o título da página
+                // Atualiza o título da página
                 document.title = data.profile.name;
 
             } catch (error) {
@@ -53,7 +52,7 @@
             }
         }
 
-        // Função para aplicar os estilos do tema
+        // Função para aplicar os estilos do tema (ATUALIZADA)
         function applyTheme(theme) {
             const styleTag = document.getElementById('dynamic-styles');
             const css = `
@@ -72,60 +71,47 @@
                     margin: 0 auto;
                     min-height: 100vh;
                 }
-                
-                /* CORREÇÃO AGRESSIVA: Força o container do hero a ocupar espaço */
-                #hero-section {
-                    position: static !important; /* Sobrescreve qualquer regra conflitante */
-                    width: 100%;
+
+                /* --- ESTILOS DOS NOVOS FRAMES --- */
+
+                #hero-frame {
+                    height: 300px; /* Altura fixa para o hero */
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
                 }
-                
-                .header {
-                    position: relative;
-                    height: 250px;
-                    overflow: hidden;
-                }
-                
-                .header-image {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-                
-                .header-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: ${theme.colors.hero_overlay};
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    color: white;
+
+                #logo-frame {
+                    background-color: ${theme.colors.card_background};
+                    padding: 30px;
+                    margin: -50px 15px 0 15px; /* Margem negativa para sobrepor o hero */
+                    border-radius: 15px;
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
                     text-align: center;
-                    padding: 0 20px;
+                    position: relative; /* Necessário para o z-index funcionar */
+                    z-index: 10; /* Garante que fique sobre o hero */
                 }
-                
-                .business-name {
+
+                .logo-title {
                     font-size: 2rem;
                     margin-bottom: 8px;
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                    color: ${theme.colors.text};
                 }
                 
-                .business-tagline {
+                .logo-tagline {
                     font-size: 1.2rem;
-                    margin-bottom: 20px;
-                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+                    margin-bottom: 25px;
+                    color: ${theme.colors.text_secondary};
                 }
                 
                 .contact-buttons {
                     display: flex;
+                    justify-content: center;
                     gap: 15px;
                 }
                 
                 .contact-btn {
-                    padding: 10px 20px;
+                    padding: 12px 25px;
                     border-radius: 30px;
                     border: none;
                     font-size: 0.9rem;
@@ -134,7 +120,7 @@
                     transition: all 0.3s ease;
                     display: flex;
                     align-items: center;
-                    gap: 6px;
+                    gap: 8px;
                     text-decoration: none;
                     color: white;
                 }
@@ -144,10 +130,12 @@
                 
                 .call-btn { background-color: ${theme.colors.primary}; }
                 .call-btn:hover { background-color: ${theme.colors.primary_hover}; }
-                
-                .main-content {
-                    padding: 30px 15px;
+
+                #info-frame {
+                    padding: 20px 15px 40px 15px;
                 }
+                
+                /* --- ESTILOS DO CONTEÚDO (REUTILIZADOS) --- */
                 
                 .section-title {
                     text-align: center;
@@ -243,6 +231,7 @@
                     color: white;
                     padding: 30px 0;
                     text-align: center;
+                    border-radius: 10px;
                 }
                 
                 .social-icons {
@@ -277,37 +266,35 @@
             styleTag.innerHTML = css;
         }
 
-        // Função para construir o cabeçalho
-        function buildHeader(profile) {
-            const heroSection = document.getElementById('hero-section');
-            heroSection.innerHTML = `
-                <header class="header">
-                    <img src="${profile.hero_image}" alt="Imagem de destaque" class="header-image">
-                    <div class="header-overlay">
-                        <h1 class="business-name">${profile.name}</h1>
-                        <p class="business-tagline">${profile.tagline}</p>
-                        <div class="contact-buttons">
-                            <a href="https://wa.me/${profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
-                                <i class="fab fa-whatsapp"></i> WhatsApp
-                            </a>
-                            <a href="tel:${profile.contact.phone}" class="contact-btn call-btn">
-                                <i class="fas fa-phone"></i> Ligar
-                            </a>
-                        </div>
-                    </div>
-                </header>
+        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
+        function buildPage(data) {
+            // 1. Montar o Hero Frame (apenas a imagem de fundo)
+            const heroFrame = document.getElementById('hero-frame');
+            heroFrame.style.backgroundImage = `url(${data.profile.hero_image})`;
+
+            // 2. Montar o Logo Frame
+            const logoFrame = document.getElementById('logo-frame');
+            logoFrame.innerHTML = `
+                <h1 class="logo-title">${data.profile.name}</h1>
+                <p class="logo-tagline">${data.profile.tagline}</p>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/${data.profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="tel:${data.profile.contact.phone}" class="contact-btn call-btn">
+                        <i class="fas fa-phone"></i> Ligar
+                    </a>
+                </div>
             `;
-        }
-        
-        // Função para construir o conteúdo principal (Serviços e Horário)
-        function buildMainContent(content, services, schedule) {
-            const mainContent = document.getElementById('main-content');
+
+            // 3. Montar o Info Frame
+            const infoFrame = document.getElementById('info-frame');
             
             // Construir a seção de serviços
             const servicesHtml = `
-                <h2 class="section-title">${content.services_title}</h2>
+                <h2 class="section-title">${data.content.services_title}</h2>
                 <div class="services">
-                    ${services.map(service => `
+                    ${data.services.map(service => `
                         <div class="service-card">
                             <div class="service-icon"><i class="${service.icon}"></i></div>
                             <h3 class="service-title">${service.title}</h3>
@@ -319,10 +306,10 @@
             
             // Construir a seção de horário
             const scheduleHtml = `
-                <h2 class="section-title">${content.schedule_title}</h2>
+                <h2 class="section-title">${data.content.schedule_title}</h2>
                 <div class="schedule">
                     <div class="schedule-days">
-                        ${schedule.map(day => `
+                        ${data.schedule.map(day => `
                             <div class="schedule-day">
                                 <span class="day-name">${day.day}</span>
                                 <span class="day-hours ${day.hours === 'Fechado' ? 'closed' : ''}">${day.hours}</span>
@@ -331,23 +318,22 @@
                     </div>
                 </div>
             `;
-            
-            mainContent.innerHTML = servicesHtml + scheduleHtml;
-        }
 
-        // Função para construir o rodapé
-        function buildFooter(footer, social) {
-            const footerSection = document.getElementById('footer-section');
-            footerSection.innerHTML = `
-                <div class="social-icons">
-                    ${social.map(item => `
-                        <a href="${item.url}" target="_blank" class="social-icon">
-                            <i class="${item.icon}"></i>
-                        </a>
-                    `).join('')}
+            // Construir o rodapé
+            const footerHtml = `
+                <div class="footer">
+                    <div class="social-icons">
+                        ${data.social.map(item => `
+                            <a href="${item.url}" target="_blank" class="social-icon">
+                                <i class="${item.icon}"></i>
+                            </a>
+                        `).join('')}
+                    </div>
+                    <p class="copyright">${data.footer.copyright}</p>
                 </div>
-                <p class="copyright">${footer.copyright}</p>
             `;
+
+            infoFrame.innerHTML = servicesHtml + scheduleHtml + footerHtml;
         }
 
         // Iniciar a aplicação quando o DOM estiver carregado
