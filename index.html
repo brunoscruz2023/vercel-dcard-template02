@@ -10,7 +10,7 @@
     <style id="dynamic-styles"></style>
 </head>
 <body>
-    <!-- Cabeçalho (Seção Hero) -->
+    <!-- Cabeçalho (Seção Hero) - O container principal -->
     <header id="hero-section">
         <!-- O conteúdo será gerado pelo JavaScript -->
     </header>
@@ -73,6 +73,7 @@
                     min-height: 100vh;
                 }
                 
+                /* A regra .header agora se aplica à nova tag criada pelo JS */
                 .header {
                     position: relative;
                     height: 250px;
@@ -275,6 +276,7 @@
         function buildHeader(profile) {
             const heroSection = document.getElementById('hero-section');
             heroSection.innerHTML = `
+                <!-- INÍCIO DA ALTERAÇÃO: Novo <header> com a classe .header -->
                 <header class="header">
                     <img src="${profile.hero_image}" alt="Imagem de destaque" class="header-image">
                     <div class="header-overlay">
@@ -290,6 +292,7 @@
                         </div>
                     </div>
                 </header>
+                <!-- FIM DA ALTERAÇÃO -->
             `;
         }
         
@@ -349,4 +352,3 @@
     </script>
 </body>
 </html>
-
