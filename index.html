@@ -63,31 +63,29 @@
                     font-family: ${theme.font_family};
                 }
                 
-                /* CORREÇÃO: Body agora tem a largura máxima e centralização */
                 body {
                     background-color: ${theme.colors.background};
                     color: ${theme.colors.text};
                     line-height: 1.6;
-                    max-width: 480px; /* Largura máxima unificada */
-                    margin: 0 auto; /* Centraliza a página */
+                    max-width: 480px;
+                    margin: 0 auto;
                     min-height: 100vh;
                 }
 
-                /* --- ESTILOS DOS FRAMES (AGORA DENTRO DO BODY DE 480PX) --- */
+                /* --- ESTILOS DOS FRAMES --- */
 
                 #hero-frame {
                     height: 300px;
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
-                    width: 100%; /* Ocupa 100% do body (480px) */
+                    width: 100%;
                 }
 
-                /* CORREÇÃO: Frame do logo sem largura/margem própria, herdando do body */
                 #logo-frame {
                     background-color: ${theme.colors.card_background};
                     padding: 30px;
-                    margin: -50px 0 0 0; /* Apenas a margem negativa para sobrepor */
+                    margin: -50px 0 0 0;
                     border-radius: 15px;
                     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
                     text-align: center;
@@ -134,12 +132,11 @@
                 .call-btn { background-color: ${theme.colors.primary}; }
                 .call-btn:hover { background-color: ${theme.colors.primary_hover}; }
 
-                /* CORREÇÃO: Frame de informações sem largura/margem própria */
                 #info-frame {
-                    padding: 20px 0 40px 0; /* Padding horizontal removido, pois os cards internos já têm */
+                    padding: 20px 0 40px 0;
                 }
                 
-                /* --- ESTILOS DOS CARDS (REUTILIZADOS) --- */
+                /* --- ESTILOS DO CONTEÚDO (COM MELHORIA NOS SERVIÇOS) --- */
                 
                 .section-title {
                     text-align: center;
@@ -148,6 +145,7 @@
                     color: ${theme.colors.text};
                 }
                 
+                /* MELHORIA: Layout horizontal para os cards de serviço */
                 .services {
                     display: flex;
                     flex-direction: column;
@@ -161,6 +159,9 @@
                     padding: 20px;
                     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    display: flex; /* Muda para flexbox */
+                    align-items: center; /* Alinha ícone e texto verticalmente */
+                    gap: 20px; /* Espaço entre ícone e texto */
                 }
                 
                 .service-card:hover {
@@ -170,13 +171,18 @@
                 
                 .service-icon {
                     font-size: 2rem;
-                    margin-bottom: 12px;
                     color: ${theme.colors.primary};
+                    flex-shrink: 0; /* Impede que o ícone encolha */
                 }
                 
+                /* NOVA CLASSE para o container de texto */
+                .service-text {
+                    text-align: left; /* Alinha o texto à esquerda */
+                }
+
                 .service-title {
                     font-size: 1.3rem;
-                    margin-bottom: 12px;
+                    margin-bottom: 8px; /* Reduz o espaço entre título e descrição */
                     color: ${theme.colors.text};
                 }
                 
@@ -270,9 +276,9 @@
             styleTag.innerHTML = css;
         }
 
-        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
+        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (COM HTML ATUALIZADO)
         function buildPage(data) {
-            // 1. Montar o Hero Frame (apenas a imagem de fundo)
+            // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
             heroFrame.style.backgroundImage = `url(${data.profile.hero_image})`;
 
@@ -294,15 +300,18 @@
             // 3. Montar o Info Frame
             const infoFrame = document.getElementById('info-frame');
             
-            // Construir a seção de serviços
+            // Construir a seção de serviços com NOVO HTML
             const servicesHtml = `
                 <h2 class="section-title">${data.content.services_title}</h2>
                 <div class="services">
                     ${data.services.map(service => `
                         <div class="service-card">
                             <div class="service-icon"><i class="${service.icon}"></i></div>
-                            <h3 class="service-title">${service.title}</h3>
-                            <p class="service-description">${service.description}</p>
+                            <!-- NOVO CONTAINER PARA O TEXTO -->
+                            <div class="service-text">
+                                <h3 class="service-title">${service.title}</h3>
+                                <p class="service-description">${service.description}</p>
+                            </div>
                         </div>
                     `).join('')}
                 </div>
