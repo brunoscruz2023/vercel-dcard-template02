@@ -3,334 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tranquil Touch Therapy</title>
+    <title>Carregando...</title>
+    <!-- Font Awesome para os ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Manrope', sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            max-width: 480px; /* Limitando a largura para formato mobile */
-            margin: 0 auto; /* Centralizando na página */
-            min-height: 100vh;
-        }
-        
-        /* Header Section */
-        .header {
-            position: relative;
-            height: 250px; /* Reduzindo altura para mobile */
-            overflow: hidden;
-        }
-        
-        .header-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-        
-        .business-name {
-            font-size: 2rem; /* Reduzindo tamanho para mobile */
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .business-tagline {
-            font-size: 1.2rem; /* Reduzindo tamanho para mobile */
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .contact-btn {
-            padding: 10px 20px;
-            border-radius: 30px;
-            border: none;
-            font-size: 0.9rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .whatsapp-btn {
-            background-color: #25d366;
-            color: white;
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: #128c7e;
-        }
-        
-        .call-btn {
-            background-color: #007bff;
-            color: white;
-        }
-        
-        .call-btn:hover {
-            background-color: #0056b3;
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 30px 15px;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #333;
-        }
-        
-        .services {
-            display: flex;
-            flex-direction: column; /* Alterando para coluna em mobile */
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: #007bff;
-        }
-        
-        .service-title {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: #333;
-        }
-        
-        .service-description {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        .schedule {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
-        
-        .schedule-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .schedule-days {
-            display: flex;
-            flex-direction: column; /* Alterando para coluna em mobile */
-            gap: 10px;
-        }
-        
-        .schedule-day {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .schedule-day:last-child {
-            border-bottom: none;
-        }
-        
-        .day-name {
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-        
-        .day-hours {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .closed {
-            color: #e74c3c;
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .social-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: #444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: #007bff;
-        }
-        
-        .copyright {
-            font-size: 0.8rem;
-            color: #aaa;
-        }
-    </style>
+    <!-- Estilos dinâmicos serão injetados aqui -->
+    <style id="dynamic-styles"></style>
 </head>
 <body>
-    <header class="header">
-        <img src="https://z-cdn-media.chatglm.cn/files/22aedede-1c5a-4d73-9f04-d44809d729bb_screen.png?auth_key=1862643193-121bf4e852d148bebcf2be9185c85774-0-b5dd9ecea6ea8897d00c3b8c0d0f5bf3" alt="Sala de massagem aconchegante" class="header-image">
-        <div class="header-overlay">
-            <h1 class="business-name">Tranquil Touch Therapy</h1>
-            <p class="business-tagline">Massage Therapy & Wellness</p>
-            <div class="contact-buttons">
-                <a href="#" class="contact-btn whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="#" class="contact-btn call-btn">
-                    <i class="fas fa-phone"></i> Ligar
-                </a>
-            </div>
-        </div>
+    <!-- Cabeçalho (Seção Hero) -->
+    <header id="hero-section">
+        <!-- O conteúdo será gerado pelo JavaScript -->
     </header>
     
-    <main class="main-content">
-        <h2 class="section-title">Nossos Serviços</h2>
-        
-        <div class="services">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-hand-rock"></i>
-                </div>
-                <h3 class="service-title">Deep Tissue Massage</h3>
-                <p class="service-description">Alivia a tensão muscular crônica, focando nas camadas mais profundas dos músculos e tecidos conjuntivos.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-spa"></i>
-                </div>
-                <h3 class="service-title">Swedish Relaxation</h3>
-                <p class="service-description">Promove calma e bem-estar através de movimentos suaves e fluidos que relaxam o corpo e a mente.</p>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-running"></i>
-                </div>
-                <h3 class="service-title">Sports Massage</h3>
-                <p class="service-description">Ajuda atletas a prevenir lesões, acelerar a recuperação e melhorar o desempenho esportivo.</p>
-            </div>
-        </div>
-        
-        <h2 class="section-title">Horário de Funcionamento</h2>
-        
-        <div class="schedule">
-            <div class="schedule-days">
-                <div class="schedule-day">
-                    <span class="day-name">Segunda-feira</span>
-                    <span class="day-hours">9:00 AM - 6:00 PM</span>
-                </div>
-                <div class="schedule-day">
-                    <span class="day-name">Terça-feira</span>
-                    <span class="day-hours">9:00 AM - 6:00 PM</span>
-                </div>
-                <div class="schedule-day">
-                    <span class="day-name">Quarta-feira</span>
-                    <span class="day-hours">9:00 AM - 6:00 PM</span>
-                </div>
-                <div class="schedule-day">
-                    <span class="day-name">Quinta-feira</span>
-                    <span class="day-hours">9:00 AM - 6:00 PM</span>
-                </div>
-                <div class="schedule-day">
-                    <span class="day-name">Sexta-feira</span>
-                    <span class="day-hours">9:00 AM - 6:00 PM</span>
-                </div>
-                <div class="schedule-day">
-                    <span class="day-name">Sábado</span>
-                    <span class="day-hours">10:00 AM - 4:00 PM</span>
-                </div>
-                <div class="schedule-day">
-                    <span class="day-name">Domingo</span>
-                    <span class="day-hours closed">Fechado</span>
-                </div>
-            </div>
-        </div>
+    <!-- Conteúdo Principal -->
+    <main id="main-content">
+        <!-- O conteúdo será gerado pelo JavaScript -->
     </main>
     
-    <footer class="footer">
-        <div class="social-icons">
-            <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-        </div>
-        <p class="copyright">© 2023 Tranquil Touch Therapy. Todos os direitos reservados.</p>
+    <!-- Rodapé -->
+    <footer id="footer-section">
+        <!-- O conteúdo será gerado pelo JavaScript -->
     </footer>
-    
+
     <script>
-        // Adicionaremos JavaScript aqui quando tornarmos o template dinâmico
+        // Função principal para inicializar a aplicação
+        async function initializeApp() {
+            try {
+                // 1. Carregar os dados do arquivo data.json
+                const response = await fetch('data.json');
+                if (!response.ok) {
+                    throw new Error(`Erro ao carregar o data.json: ${response.statusText}`);
+                }
+                const data = await response.json();
+
+                // 2. Aplicar o tema e estilos dinâmicos
+                applyTheme(data.theme);
+
+                // 3. Construir as seções da página com os dados
+                buildHeader(data.profile);
+                buildMainContent(data.content, data.services, data.schedule);
+                buildFooter(data.footer, data.social);
+
+                // 4. Atualizar o título da página
+                document.title = data.profile.name;
+
+            } catch (error) {
+                console.error("Falha ao inicializar a aplicação:", error);
+                document.body.innerHTML = `<div style="font-family: sans-serif; text-align: center; margin-top: 50px;"><h1>Erro ao carregar o conteúdo.</h1><p>Verifique o console para mais detalhes.</p></div>`;
+            }
+        }
+
+        // Função para aplicar os estilos do tema
+        function applyTheme(theme) {
+            const styleTag = document.getElementById('dynamic-styles');
+            const css = `
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: ${theme.font_family};
+                }
+                
+                body {
+                    background-color: ${theme.colors.background};
+                    color: ${theme.colors.text};
+                    line-height: 1.6;
+                    max-width: 480px;
+                    margin: 0 auto;
+                    min-height: 100vh;
+                }
+                
+                .header {
+                    position: relative;
+                    height: 250px;
+                    overflow: hidden;
+                }
+                
+                .header-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                
+                .header-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: ${theme.colors.hero_overlay};
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    text-align: center;
+                    padding: 0 20px;
+                }
+                
+                .business-name {
+                    font-size: 2rem;
+                    margin-bottom: 8px;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                }
+                
+                .business-tagline {
+                    font-size: 1.2rem;
+                    margin-bottom: 20px;
+                    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+                }
+                
+                .contact-buttons {
+                    display: flex;
+                    gap: 15px;
+                }
+                
+                .contact-btn {
+                    padding: 10px 20px;
+                    border-radius: 30px;
+                    border: none;
+                    font-size: 0.9rem;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    text-decoration: none;
+                    color: white;
+                }
+                
+                .whatsapp-btn { background-color: ${theme.colors.whatsapp}; }
+                .whatsapp-btn:hover { background-color: ${theme.colors.whatsapp_hover}; }
+                
+                .call-btn { background-color: ${theme.colors.primary}; }
+                .call-btn:hover { background-color: ${theme.colors.primary_hover}; }
+                
+                .main-content {
+                    padding: 30px 15px;
+                }
+                
+                .section-title {
+                    text-align: center;
+                    font-size: 1.8rem;
+                    margin-bottom: 25px;
+                    color: ${theme.colors.text};
+                }
+                
+                .services {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-bottom: 40px;
+                }
+                
+                .service-card {
+                    background-color: ${theme.colors.card_background};
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .service-card:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                }
+                
+                .service-icon {
+                    font-size: 2rem;
+                    margin-bottom: 12px;
+                    color: ${theme.colors.primary};
+                }
+                
+                .service-title {
+                    font-size: 1.3rem;
+                    margin-bottom: 12px;
+                    color: ${theme.colors.text};
+                }
+                
+                .service-description {
+                    color: ${theme.colors.text_secondary};
+                    font-size: 0.95rem;
+                }
+                
+                .schedule {
+                    background-color: ${theme.colors.card_background};
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                    margin-bottom: 40px;
+                }
+                
+                .schedule-title {
+                    font-size: 1.5rem;
+                    margin-bottom: 15px;
+                    color: ${theme.colors.text};
+                }
+                
+                .schedule-days {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                .schedule-day {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #eee;
+                }
+                
+                .schedule-day:last-child {
+                    border-bottom: none;
+                }
+                
+                .day-name {
+                    font-weight: bold;
+                    font-size: 0.95rem;
+                }
+                
+                .day-hours {
+                    color: ${theme.colors.text_secondary};
+                    font-size: 0.9rem;
+                }
+                
+                .closed {
+                    color: ${theme.colors.status_closed};
+                }
+                
+                .footer {
+                    background-color: ${theme.colors.footer_background};
+                    color: white;
+                    padding: 30px 0;
+                    text-align: center;
+                }
+                
+                .social-icons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    margin-bottom: 15px;
+                }
+                
+                .social-icon {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    background-color: ${theme.colors.social_icon_background};
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: background-color 0.3s ease;
+                    text-decoration: none;
+                    color: white;
+                }
+                
+                .social-icon:hover {
+                    background-color: ${theme.colors.primary};
+                }
+                
+                .copyright {
+                    font-size: 0.8rem;
+                    color: #aaa;
+                }
+            `;
+            styleTag.innerHTML = css;
+        }
+
+        // Função para construir o cabeçalho
+        function buildHeader(profile) {
+            const heroSection = document.getElementById('hero-section');
+            heroSection.innerHTML = `
+                <img src="${profile.hero_image}" alt="Imagem de destaque" class="header-image">
+                <div class="header-overlay">
+                    <h1 class="business-name">${profile.name}</h1>
+                    <p class="business-tagline">${profile.tagline}</p>
+                    <div class="contact-buttons">
+                        <a href="https://wa.me/${profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="tel:${profile.contact.phone}" class="contact-btn call-btn">
+                            <i class="fas fa-phone"></i> Ligar
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Função para construir o conteúdo principal (Serviços e Horário)
+        function buildMainContent(content, services, schedule) {
+            const mainContent = document.getElementById('main-content');
+            
+            // Construir a seção de serviços
+            const servicesHtml = `
+                <h2 class="section-title">${content.services_title}</h2>
+                <div class="services">
+                    ${services.map(service => `
+                        <div class="service-card">
+                            <div class="service-icon"><i class="${service.icon}"></i></div>
+                            <h3 class="service-title">${service.title}</h3>
+                            <p class="service-description">${service.description}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            // Construir a seção de horário
+            const scheduleHtml = `
+                <h2 class="section-title">${content.schedule_title}</h2>
+                <div class="schedule">
+                    <div class="schedule-days">
+                        ${schedule.map(day => `
+                            <div class="schedule-day">
+                                <span class="day-name">${day.day}</span>
+                                <span class="day-hours ${day.hours === 'Fechado' ? 'closed' : ''}">${day.hours}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            mainContent.innerHTML = servicesHtml + scheduleHtml;
+        }
+
+        // Função para construir o rodapé
+        function buildFooter(footer, social) {
+            const footerSection = document.getElementById('footer-section');
+            footerSection.innerHTML = `
+                <div class="social-icons">
+                    ${social.map(item => `
+                        <a href="${item.url}" target="_blank" class="social-icon">
+                            <i class="${item.icon}"></i>
+                        </a>
+                    `).join('')}
+                </div>
+                <p class="copyright">${footer.copyright}</p>
+            `;
+        }
+
+        // Iniciar a aplicação quando o DOM estiver carregado
+        window.addEventListener('DOMContentLoaded', initializeApp);
     </script>
 </body>
 </html>
