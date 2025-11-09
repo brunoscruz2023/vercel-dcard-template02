@@ -3,7 +3,12 @@
     "name": "Tranquil Touch Therapy",
     "tagline": "Massage Therapy & Wellness",
     "hero_image": "template02.png",
-    "logo_image": "logocodei9.png",
+    "logo": {
+      "shape_options": "round, square, landscape, portrait",
+      "visible": true,
+      "shape": "round",
+      "url": "logocodei9.png"
+    },
     "contact": {
       "whatsapp": "5511912345678",
       "phone": "5511912345678"
@@ -31,12 +36,6 @@
       "title": "Sports Massage",
       "description": "Ajuda atletas a prevenir lesões, acelerar a recuperação e melhorar o desempenho esportivo.",
       "visible": false
-    },
-    {
-      "icon": "fas fa-running",
-      "title": "Liberação Miofascial",
-      "description": "Libera e define os músculos reduzindo dores e melhorando visualmente.",
-      "visible": true
     }
   ],
   "schedule": [
@@ -52,7 +51,7 @@
     { "icon": "fab fa-facebook-f", "url": "#", "visible": true },
     { "icon": "fab fa-instagram", "url": "#", "visible": true },
     { "icon": "fab fa-twitter", "url": "#", "visible": false },
-    { "icon": "fab fa-linkedin-in", "url": "#", "visible": false },
+    { "icon": "fab fa-linkedin-in", "url": "#", "visible": true },
     { "icon": "fab fa-pinterest-p", "url": "#", "visible": true },
     { "icon": "fab fa-google", "url": "#", "visible": true },
     { "icon": "fab fa-youtube", "url": "#", "visible": true }
@@ -78,7 +77,3 @@
     }
   }
 }
-
-
-
-
