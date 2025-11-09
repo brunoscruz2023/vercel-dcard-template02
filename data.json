@@ -46,7 +46,10 @@
     { "icon": "fab fa-facebook-f", "url": "#", "visible": true },
     { "icon": "fab fa-instagram", "url": "#", "visible": true },
     { "icon": "fab fa-twitter", "url": "#", "visible": false },
-    { "icon": "fab fa-linkedin-in", "url": "#", "visible": true }
+    { "icon": "fab fa-linkedin-in", "url": "#", "visible": true },
+    { "icon": "fab fa-pinterest-p", "url": "#", "visible": true },
+    { "icon": "fab fa-google", "url": "#", "visible": true },
+    { "icon": "fab fa-youtube", "url": "#", "visible": true }
   ],
   "footer": {
     "copyright": "© 2023 Tranquil Touch Therapy. Todos os direitos reservados."
@@ -69,4 +72,3 @@
     }
   }
 }
-
