@@ -12,7 +12,7 @@
 <body>
     <!-- NOVA ESTRUTURA DE FRAMES -->
     
-    <!-- Frame 1: Hero com imagem de fundo -->
+    <!-- Frame 1: Hero com imagem de fundo (largura total) -->
     <div id="hero-frame">
         <!-- Conteúdo gerado via CSS (background-image) -->
     </div>
@@ -63,12 +63,13 @@
                     font-family: ${theme.font_family};
                 }
                 
+                /* CORREÇÃO: Body agora ocupa 100% da largura */
                 body {
                     background-color: ${theme.colors.background};
                     color: ${theme.colors.text};
                     line-height: 1.6;
-                    max-width: 480px;
-                    margin: 0 auto;
+                    /* max-width: 480px; REMOVIDO */
+                    /* margin: 0 auto; REMOVIDO */
                     min-height: 100vh;
                 }
 
@@ -79,17 +80,20 @@
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
+                    width: 100%; /* Garante largura total */
                 }
 
+                /* CORREÇÃO: Frame do logo com largura máxima e centralizado */
                 #logo-frame {
                     background-color: ${theme.colors.card_background};
                     padding: 30px;
-                    margin: -50px 15px 0 15px; /* Margem negativa para sobrepor o hero */
+                    margin: -50px auto 0 auto; /* Centraliza o frame e sobrepõe o hero */
+                    max-width: 480px; /* Largura máxima do conteúdo */
                     border-radius: 15px;
                     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
                     text-align: center;
-                    position: relative; /* Necessário para o z-index funcionar */
-                    z-index: 10; /* Garante que fique sobre o hero */
+                    position: relative;
+                    z-index: 10;
                 }
 
                 .logo-title {
@@ -131,8 +135,11 @@
                 .call-btn { background-color: ${theme.colors.primary}; }
                 .call-btn:hover { background-color: ${theme.colors.primary_hover}; }
 
+                /* CORREÇÃO: Frame de informações com largura máxima e centralizado */
                 #info-frame {
                     padding: 20px 15px 40px 15px;
+                    max-width: 480px; /* Largura máxima do conteúdo */
+                    margin: 0 auto; /* Centraliza o frame */
                 }
                 
                 /* --- ESTILOS DO CONTEÚDO (REUTILIZADOS) --- */
@@ -281,7 +288,7 @@
                     <a href="https://wa.me/${data.profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="tel:${data.profile.contact.phone}" class="contact-btn call-btn">
+                    <a href="tel:${data.profile.phone}" class="contact-btn call-btn">
                         <i class="fas fa-phone"></i> Ligar
                     </a>
                 </div>
