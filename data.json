@@ -6,7 +6,7 @@
     "logo": {
       "shape_options": "round, square, landscape, portrait",
       "visible": true,
-      "shape": "round",
+      "shape": "landscape",
       "url": "logocodei9.png"
     },
     "contact": {
@@ -77,3 +77,4 @@
     }
   }
 }
+
