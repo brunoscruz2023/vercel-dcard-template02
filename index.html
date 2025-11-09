@@ -302,10 +302,10 @@
             const heroFrame = document.getElementById('hero-frame');
             heroFrame.style.backgroundImage = `url(${data.profile.hero_image})`;
 
-            // 2. Montar o NOVO Logo Image Frame
+            // 2. Montar o NOVO Logo Image Frame (COM LOGO DINÂMICA)
             const logoImageFrame = document.getElementById('logo-image-frame');
             logoImageFrame.innerHTML = `
-                <img src="logo CODEI9.png" alt="Logo" class="logo-image">
+                <img src="${data.profile.logo_image}" alt="Logo" class="logo-image">
             `;
 
             // 3. Montar o Logo Frame (com texto e botões)
