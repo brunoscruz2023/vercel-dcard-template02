@@ -3,7 +3,7 @@
     "name": "Tranquil Touch Therapy",
     "tagline": "Massage Therapy & Wellness",
     "hero_image": "template02.png",
-    "logo_image": "./logocodei9.png",
+    "logo_image": "logo-codei9.png",
     "contact": {
       "whatsapp": "5511912345678",
       "phone": "5511912345678"
@@ -17,17 +17,20 @@
     {
       "icon": "fas fa-hand-rock",
       "title": "Deep Tissue Massage",
-      "description": "Alivia a tensão muscular crônica, focando nas camadas mais profundas dos músculos e tecidos conjuntivos."
+      "description": "Alivia a tensão muscular crônica, focando nas camadas mais profundas dos músculos e tecidos conjuntivos.",
+      "visible": true
     },
     {
       "icon": "fas fa-spa",
       "title": "Swedish Relaxation",
-      "description": "Promove calma e bem-estar através de movimentos suaves e fluidos que relaxam o corpo e a mente."
+      "description": "Promove calma e bem-estar através de movimentos suaves e fluidos que relaxam o corpo e a mente.",
+      "visible": true
     },
     {
       "icon": "fas fa-running",
       "title": "Sports Massage",
-      "description": "Ajuda atletas a prevenir lesões, acelerar a recuperação e melhorar o desempenho esportivo."
+      "description": "Ajuda atletas a prevenir lesões, acelerar a recuperação e melhorar o desempenho esportivo.",
+      "visible": false
     }
   ],
   "schedule": [
@@ -40,10 +43,10 @@
     { "day": "Domingo", "hours": "Fechado" }
   ],
   "social": [
-    { "icon": "fab fa-facebook-f", "url": "#" },
-    { "icon": "fab fa-instagram", "url": "#" },
-    { "icon": "fab fa-twitter", "url": "#" },
-    { "icon": "fab fa-linkedin-in", "url": "#" }
+    { "icon": "fab fa-facebook-f", "url": "#", "visible": true },
+    { "icon": "fab fa-instagram", "url": "#", "visible": true },
+    { "icon": "fab fa-twitter", "url": "#", "visible": false },
+    { "icon": "fab fa-linkedin-in", "url": "#", "visible": true }
   ],
   "footer": {
     "copyright": "© 2023 Tranquil Touch Therapy. Todos os direitos reservados."
@@ -66,8 +69,3 @@
     }
   }
 }
-
-
-
-
-
