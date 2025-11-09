@@ -47,7 +47,7 @@
     { "icon": "fab fa-instagram", "url": "#", "visible": true },
     { "icon": "fab fa-twitter", "url": "#", "visible": false },
     { "icon": "fab fa-linkedin-in", "url": "#", "visible": false },
-    { "icon": "fab fa-pinterest-p", "url": "#", "visible": false },
+    { "icon": "fab fa-pinterest-p", "url": "#", "visible": true },
     { "icon": "fab fa-google", "url": "#", "visible": true },
     { "icon": "fab fa-youtube", "url": "#", "visible": true }
   ],
@@ -72,4 +72,5 @@
     }
   }
 }
+
 
