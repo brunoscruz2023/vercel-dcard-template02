@@ -275,19 +275,21 @@
         function buildHeader(profile) {
             const heroSection = document.getElementById('hero-section');
             heroSection.innerHTML = `
-                <img src="${profile.hero_image}" alt="Imagem de destaque" class="header-image">
-                <div class="header-overlay">
-                    <h1 class="business-name">${profile.name}</h1>
-                    <p class="business-tagline">${profile.tagline}</p>
-                    <div class="contact-buttons">
-                        <a href="https://wa.me/${profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                        <a href="tel:${profile.contact.phone}" class="contact-btn call-btn">
-                            <i class="fas fa-phone"></i> Ligar
-                        </a>
+                <header class="header">
+                    <img src="${profile.hero_image}" alt="Imagem de destaque" class="header-image">
+                    <div class="header-overlay">
+                        <h1 class="business-name">${profile.name}</h1>
+                        <p class="business-tagline">${profile.tagline}</p>
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/${profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:${profile.contact.phone}" class="contact-btn call-btn">
+                                <i class="fas fa-phone"></i> Ligar
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </header>
             `;
         }
         
@@ -347,3 +349,4 @@
     </script>
 </body>
 </html>
+
