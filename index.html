@@ -296,7 +296,7 @@
             styleTag.innerHTML = css;
         }
 
-        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (ATUALIZADA)
+        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (ATUALIZADA COM LÓGICA FOREACH)
         function buildPage(data) {
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
@@ -326,10 +326,11 @@
             // 4. Montar o Info Frame
             const infoFrame = document.getElementById('info-frame');
             
+            // Construir a seção de serviços COM CONTROLE DE VISIBILIDADE
             const servicesHtml = `
                 <h2 class="section-title">${data.content.services_title}</h2>
                 <div class="services">
-                    ${data.services.map(service => `
+                    ${data.services.filter(service => service.visible).map(service => `
                         <div class="service-card">
                             <div class="service-icon"><i class="${service.icon}"></i></div>
                             <div class="service-text">
@@ -341,6 +342,7 @@
                 </div>
             `;
             
+            // Construir a seção de horário
             const scheduleHtml = `
                 <h2 class="section-title">${data.content.schedule_title}</h2>
                 <div class="schedule">
@@ -355,18 +357,27 @@
                 </div>
             `;
 
+            // INÍCIO DA MUDANÇA: Construir o rodapé com a lógica forEach
+            let socialContent = '';
+            data.social.forEach(item => {
+                if (item.visible) {
+                    socialContent += `
+                        <a href="${item.url}" target="_blank" class="social-icon">
+                            <i class="${item.icon}"></i>
+                        </a>
+                    `;
+                }
+            });
+
             const footerHtml = `
                 <div class="footer">
                     <div class="social-icons">
-                        ${data.social.map(item => `
-                            <a href="${item.url}" target="_blank" class="social-icon">
-                                <i class="${item.icon}"></i>
-                            </a>
-                        `).join('')}
+                        ${socialContent}
                     </div>
                     <p class="copyright">${data.footer.copyright}</p>
                 </div>
             `;
+            // FIM DA MUDANÇA
 
             infoFrame.innerHTML = servicesHtml + scheduleHtml + footerHtml;
         }
