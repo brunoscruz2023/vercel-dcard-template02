@@ -32,6 +32,12 @@
       "description": "Ajuda atletas a prevenir lesões, acelerar a recuperação e melhorar o desempenho esportivo.",
       "visible": false
     }
+    {
+      "icon": "fas fa-running",
+      "title": "Liberação Miofascial",
+      "description": "Libera e define os músculos reduzindo dores e melhorando visualmente.",
+      "visible": treu
+    }
   ],
   "schedule": [
     { "day": "Segunda-feira", "hours": "9:00 AM - 6:00 PM" },
@@ -72,5 +78,6 @@
     }
   }
 }
+
 
 
