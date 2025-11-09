@@ -136,13 +136,18 @@
                     padding: 20px 0 40px 0;
                 }
                 
-                /* --- ESTILOS DO CONTEÚDO (COM ESPAÇAMENTO REDUZIDO) --- */
+                /* --- ESTILOS DO CONTEÚDO (COM ESPAÇAMENTO CORRIGIDO) --- */
                 
                 .section-title {
                     text-align: center;
                     font-size: 1.8rem;
-                    margin-bottom: 12px; /* ALTERADO: de 25px para 12px */
+                    margin-bottom: 12px; /* Reduzido */
                     color: ${theme.colors.text};
+                }
+
+                /* CORREÇÃO: Adiciona margem superior apenas ao título "Serviços" */
+                #logo-frame + .section-title {
+                    margin-top: 20px;
                 }
                 
                 .services {
@@ -199,7 +204,7 @@
                 
                 .schedule-title {
                     font-size: 1.5rem;
-                    margin-bottom: 7px; /* ALTERADO: de 15px para 7px */
+                    margin-bottom: 7px; /* Reduzido */
                     color: ${theme.colors.text};
                 }
                 
