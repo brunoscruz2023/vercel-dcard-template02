@@ -1,97 +1,67 @@
 {
-  "_comment_profile": "Seção para informações principais do perfil e contatos.",
   "profile": {
-    "title": "Tranquil Touch Therapy",
-    "description": "Massage Therapy & Wellness",
-    "background_image_url": "/template02.png",
-    "address": "123 Serenity Street, Wellness City, WC 12345",
-    "whatsapp": "5511912345678",
-    "phone": "5511912345678"
+    "name": "Tranquil Touch Therapy",
+    "tagline": "Massage Therapy & Wellness",
+    "hero_image": "template02.png",
+    "contact": {
+      "whatsapp": "5511912345678",
+      "phone": "5511912345678"
+    }
   },
-  "_comment_logo": "Configuração do logo flutuante (visibilidade, formato e URL).",
-  "logo": {
-    "shape_options": "round, square, landscape, portrait",
-    "visible": true,
-    "shape": "round",
-    "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCraNph7yvxuXM898VYF0HxJ2Lh5BD19KkSAG_47yqhB8Rzu6oYfTd68kFi-JyzP81WWrbRCsbOxGVMF_SUyUdPVWQQFoRVcIrkHKUXQZXmmqOjcpt-ET2j38l8DUONfV9RISk4QXwqfaJ40s0AqKYR3ft7KBtYmLfozBNfJJoPVOrlobDpOUW__WnyyGywm6KxgXGYh5zqPntfXo2QhcmU3FochosSOzMCHuWJz719BK-ZO2poMaUKXQOePzYIUS5wSg4VpUk1WS-l"
+  "content": {
+    "services_title": "Nossos Serviços",
+    "schedule_title": "Horário de Funcionamento"
   },
-  "_comment_services": "Lista de serviços. Cada item pode ser ocultado com 'visible: false'.",
   "services": [
     {
+      "icon": "fas fa-hand-rock",
       "title": "Deep Tissue Massage",
-      "description": "A focused massage to relieve chronic muscle tension.",
-      "icon": "self_improvement",
-      "visible": true
+      "description": "Alivia a tensão muscular crônica, focando nas camadas mais profundas dos músculos e tecidos conjuntivos."
     },
     {
+      "icon": "fas fa-spa",
       "title": "Swedish Relaxation",
-      "description": "Gentle, flowing strokes to promote calm and well-being.",
-      "icon": "spa",
-      "visible": true
+      "description": "Promove calma e bem-estar através de movimentos suaves e fluidos que relaxam o corpo e a mente."
     },
     {
+      "icon": "fas fa-running",
       "title": "Sports Massage",
-      "description": "Aimed at athletes to prevent and treat injuries.",
-      "icon": "sports_soccer",
-      "visible": true
+      "description": "Ajuda atletas a prevenir lesões, acelerar a recuperação e melhorar o desempenho esportivo."
     }
   ],
-  "_comment_schedule": "Seção de horário de funcionamento. Permite personalizar dias e horas.",
-  "schedule": {
-    "title": "Business Hours",
-    "days": [
-      {
-        "day": "Monday - Friday",
-        "hours": "9:00 AM - 6:00 PM"
-      },
-      {
-        "day": "Saturday",
-        "hours": "10:00 AM - 4:00 PM"
-      },
-      {
-        "day": "Sunday",
-        "hours": "Closed"
-      }
-    ]
+  "schedule": [
+    { "day": "Segunda-feira", "hours": "9:00 AM - 6:00 PM" },
+    { "day": "Terça-feira", "hours": "9:00 AM - 6:00 PM" },
+    { "day": "Quarta-feira", "hours": "9:00 AM - 6:00 PM" },
+    { "day": "Quinta-feira", "hours": "9:00 AM - 6:00 PM" },
+    { "day": "Sexta-feira", "hours": "9:00 AM - 6:00 PM" },
+    { "day": "Sábado", "hours": "10:00 AM - 4:00 PM" },
+    { "day": "Domingo", "hours": "Fechado" }
+  ],
+  "social": [
+    { "icon": "fab fa-facebook-f", "url": "#" },
+    { "icon": "fab fa-instagram", "url": "#" },
+    { "icon": "fab fa-twitter", "url": "#" },
+    { "icon": "fab fa-linkedin-in", "url": "#" }
+  ],
+  "footer": {
+    "copyright": "© 2023 Tranquil Touch Therapy. Todos os direitos reservados."
   },
-  "_comment_social_media": "Lista de redes sociais. Cada rede pode ser ocultada com 'visible: false'.",
-  "social_media": [
-    {
-      "platform": "instagram",
-      "url": "https://www.instagram.com/tranquiltouch",
-      "visible": true
-    },
-    {
-      "platform": "facebook",
-      "url": "https://www.facebook.com/tranquiltouch",
-      "visible": true
-    },
-    {
-      "platform": "linkedin",
-      "url": "https://www.linkedin.com/in/tranquiltouch",
-      "visible": true
-    }
-  ],
-  "_comment_theme": "Configurações visuais do template (cores, fontes, bordas).",
   "theme": {
+    "font_family": "Manrope, sans-serif",
     "colors": {
-      "primary": "#001f3f",
-      "background_light": "#F5F5F5",
-      "background_dark": "#101010",
-      "whatsapp": "#25D366"
-    },
-    "font_family": "Manrope",
-    "border_radius": {
-      "button": "0.5rem",
-      "card": "0.75rem",
-      "icon": "9999px"
+      "background": "#f5f5f5",
+      "text": "#333333",
+      "card_background": "#ffffff",
+      "primary": "#007bff",
+      "primary_hover": "#0056b3",
+      "whatsapp": "#25d366",
+      "whatsapp_hover": "#128c7e",
+      "text_secondary": "#666666",
+      "status_closed": "#e74c3c",
+      "footer_background": "#333333",
+      "social_icon_background": "#444444",
+      "hero_overlay": "rgba(0, 0, 0, 0.3)"
     }
-  },
-  "_comment_layout": "Configurações de layout e dimensões.",
-  "layout": {
-    "hero_height": "192px"
   }
-
 }
-
-
