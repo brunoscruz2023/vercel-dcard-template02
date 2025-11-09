@@ -17,12 +17,17 @@
         <!-- Conteúdo gerado via CSS (background-image) -->
     </div>
 
-    <!-- Frame 2: Logo e informações de contato (sobrepondo o hero) -->
+    <!-- Frame 2: Apenas a imagem da logo (sobrepondo o hero) -->
+    <div id="logo-image-frame">
+        <!-- Conteúdo gerado pelo JavaScript -->
+    </div>
+
+    <!-- Frame 3: Logo e informações de contato (agora abaixo da logo) -->
     <div id="logo-frame">
         <!-- Conteúdo gerado pelo JavaScript -->
     </div>
 
-    <!-- Frame 3: Conteúdo principal (serviços, horário, rodapé) -->
+    <!-- Frame 4: Conteúdo principal (serviços, horário, rodapé) -->
     <div id="info-frame">
         <!-- Conteúdo gerado pelo JavaScript -->
     </div>
@@ -72,7 +77,7 @@
                     min-height: 100vh;
                 }
 
-                /* --- ESTILOS DOS FRAMES --- */
+                /* --- ESTILOS DOS FRAMES (REESTRUTURADOS) --- */
 
                 #hero-frame {
                     height: 300px;
@@ -82,15 +87,28 @@
                     width: 100%;
                 }
 
-                #logo-frame {
-                    background-color: ${theme.colors.card_background};
-                    padding: 30px;
-                    margin: -50px 0 0 0;
-                    border-radius: 15px;
-                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                /* NOVO FRAME APENAS PARA A LOGO */
+                #logo-image-frame {
+                    background: transparent;
+                    margin-top: -50px; /* Margem negativa para sobrepor o hero */
                     text-align: center;
                     position: relative;
-                    z-index: 10;
+                    z-index: 5; /* Fica acima do hero */
+                }
+
+                .logo-image {
+                    max-width: 150px;
+                    height: auto;
+                    display: block;
+                    margin: 0 auto; /* Centraliza a imagem */
+                }
+
+                /* FRAME DE INFORMAÇÕES AGORA É UM BLOCO SIMPLES */
+                #logo-frame {
+                    padding: 30px 15px; /* Padding horizontal para o conteúdo */
+                    margin-top: 20px; /* Margem positiva para ficar abaixo da logo */
+                    text-align: center;
+                    /* Propriedades de card removidas */
                 }
 
                 .logo-title {
@@ -136,16 +154,15 @@
                     padding: 20px 0 40px 0;
                 }
                 
-                /* --- ESTILOS DO CONTEÚDO (COM ESPAÇAMENTO CORRIGIDO) --- */
+                /* --- ESTILOS DO CONTEÚDO (SEM MUDANÇAS) --- */
                 
                 .section-title {
                     text-align: center;
                     font-size: 1.8rem;
-                    margin-bottom: 12px; /* Reduzido */
+                    margin-bottom: 12px;
                     color: ${theme.colors.text};
                 }
 
-                /* CORREÇÃO FINAL: Adiciona margem superior apenas ao primeiro título dentro do info-frame */
                 #info-frame > .section-title:first-child {
                     margin-top: 20px;
                 }
@@ -204,7 +221,7 @@
                 
                 .schedule-title {
                     font-size: 1.5rem;
-                    margin-bottom: 7px; /* Reduzido */
+                    margin-bottom: 7px;
                     color: ${theme.colors.text};
                 }
                 
@@ -279,13 +296,19 @@
             styleTag.innerHTML = css;
         }
 
-        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
+        // NOVA FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (ATUALIZADA)
         function buildPage(data) {
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
             heroFrame.style.backgroundImage = `url(${data.profile.hero_image})`;
 
-            // 2. Montar o Logo Frame
+            // 2. Montar o NOVO Logo Image Frame
+            const logoImageFrame = document.getElementById('logo-image-frame');
+            logoImageFrame.innerHTML = `
+                <img src="logo CODEI9.png" alt="Logo" class="logo-image">
+            `;
+
+            // 3. Montar o Logo Frame (com texto e botões)
             const logoFrame = document.getElementById('logo-frame');
             logoFrame.innerHTML = `
                 <h1 class="logo-title">${data.profile.name}</h1>
@@ -300,10 +323,9 @@
                 </div>
             `;
 
-            // 3. Montar o Info Frame
+            // 4. Montar o Info Frame
             const infoFrame = document.getElementById('info-frame');
             
-            // Construir a seção de serviços
             const servicesHtml = `
                 <h2 class="section-title">${data.content.services_title}</h2>
                 <div class="services">
@@ -319,7 +341,6 @@
                 </div>
             `;
             
-            // Construir a seção de horário
             const scheduleHtml = `
                 <h2 class="section-title">${data.content.schedule_title}</h2>
                 <div class="schedule">
@@ -334,7 +355,6 @@
                 </div>
             `;
 
-            // Construir o rodapé
             const footerHtml = `
                 <div class="footer">
                     <div class="social-icons">
