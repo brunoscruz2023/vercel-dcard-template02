@@ -1,12 +1,12 @@
 {
   "profile": {
-    "name": "Tranquil Touch Therapy",
-    "tagline": "Massage Therapy & Wellness",
+    "title": "Tranquil Touch Therapy",
+    "description": "Massage Therapy & Wellness",
     "hero_image": "template02.png",
     "logo": {
       "shape_options": "round, square, landscape, portrait",
       "visible": true,
-      "shape": "landscape",
+      "shape": "round",
       "url": "logocodei9.png"
     },
     "contact": {
@@ -77,4 +77,3 @@
     }
   }
 }
-
