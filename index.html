@@ -43,13 +43,13 @@
                 const data = await response.json();
 
                 // Aplica o tema e estilos dinâmicos
-                applyTheme(data.theme);
+                applyTheme(data.theme, data.theme_config);
 
                 // Constrói a página com os dados na nova estrutura
                 buildPage(data);
 
                 // Atualiza o título da página
-                document.title = data.profile.title; // ALTERADO: de data.profile.name para data.profile.title
+                document.title = data.profile.title;
 
             } catch (error) {
                 console.error("Falha ao inicializar a aplicação:", error);
@@ -57,8 +57,16 @@
             }
         }
 
-        // Função para aplicar os estilos do tema (ATUALIZADA)
-        function applyTheme(theme) {
+        // Função para aplicar os estilos do tema (ATUALIZADA COM LÓGICA DE TEMAS)
+        function applyTheme(theme, themeConfig) {
+            // LÓGICA PARA SELECIONAR O TEMA
+            let colorsToApply;
+            if (themeConfig && themeConfig.enabled) {
+                colorsToApply = themeConfig[themeConfig.mode];
+            } else {
+                colorsToApply = theme.colors; // Fallback para o tema padrão
+            }
+
             const styleTag = document.getElementById('dynamic-styles');
             const css = `
                 * {
@@ -69,8 +77,8 @@
                 }
                 
                 body {
-                    background-color: ${theme.colors.background};
-                    color: ${theme.colors.text};
+                    background-color: ${colorsToApply.background};
+                    color: ${colorsToApply.text};
                     line-height: 1.6;
                     max-width: 480px;
                     margin: 0 auto;
@@ -102,7 +110,7 @@
                     height: 150px;
                     margin: 0 auto; /* Centraliza o container */
                     overflow: hidden; /* Garante que a imagem não vaze do formato */
-                    background-color: ${theme.colors.card_background}; /* Mantido */
+                    background-color: ${colorsToApply.card_background}; /* Mantido */
                     padding: 3px; /* Mantido */
                     box-sizing: border-box; /* Mantido */
                     /* box-shadow removido */
@@ -138,13 +146,13 @@
                 .logo-title {
                     font-size: 2rem;
                     margin-bottom: 8px;
-                    color: ${theme.colors.text};
+                    color: ${colorsToApply.text};
                 }
                 
                 .logo-tagline {
                     font-size: 1.2rem;
                     margin-bottom: 25px;
-                    color: ${theme.colors.text_secondary};
+                    color: ${colorsToApply.text_secondary};
                 }
                 
                 .contact-buttons {
@@ -168,11 +176,11 @@
                     color: white;
                 }
                 
-                .whatsapp-btn { background-color: ${theme.colors.whatsapp}; }
-                .whatsapp-btn:hover { background-color: ${theme.colors.whatsapp_hover}; }
+                .whatsapp-btn { background-color: ${colorsToApply.whatsapp}; }
+                .whatsapp-btn:hover { background-color: ${colorsToApply.whatsapp_hover}; }
                 
-                .call-btn { background-color: ${theme.colors.primary}; }
-                .call-btn:hover { background-color: ${theme.colors.primary_hover}; }
+                .call-btn { background-color: ${colorsToApply.primary}; }
+                .call-btn:hover { background-color: ${colorsToApply.primary_hover}; }
 
                 #info-frame {
                     padding: 20px 0 40px 0;
@@ -184,7 +192,7 @@
                     text-align: left; /* Alinhado à esquerda */
                     font-size: 1.8rem;
                     margin-bottom: 12px;
-                    color: ${theme.colors.text};
+                    color: ${colorsToApply.text};
                 }
 
                 #info-frame > .section-title:first-child {
@@ -199,7 +207,7 @@
                 }
                 
                 .service-card {
-                    background-color: ${theme.colors.card_background};
+                    background-color: ${colorsToApply.card_background};
                     border-radius: 10px;
                     padding: 20px;
                     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -216,7 +224,7 @@
                 
                 .service-icon {
                     font-size: 2rem;
-                    color: ${theme.colors.primary};
+                    color: ${colorsToApply.primary};
                     flex-shrink: 0;
                 }
                 
@@ -228,16 +236,16 @@
                     font-size: 1.3rem;
                     margin: 0; /* Reset para anular margens padrão do navegador */
                     margin-bottom: 4px; /* Aplica o espaçamento desejado */
-                    color: ${theme.colors.text};
+                    color: ${colorsToApply.text};
                 }
                 
                 .service-description {
-                    color: ${theme.colors.text_secondary};
+                    color: ${colorsToApply.text_secondary};
                     font-size: 0.95rem;
                 }
                 
                 .schedule {
-                    background-color: ${theme.colors.card_background};
+                    background-color: ${colorsToApply.card_background};
                     border-radius: 10px;
                     padding: 20px;
                     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -247,7 +255,7 @@
                 .schedule-title {
                     font-size: 1.5rem;
                     margin-bottom: 7px;
-                    color: ${theme.colors.text};
+                    color: ${colorsToApply.text};
                 }
                 
                 .schedule-days {
@@ -273,16 +281,16 @@
                 }
                 
                 .day-hours {
-                    color: ${theme.colors.text_secondary};
+                    color: ${colorsToApply.text_secondary};
                     font-size: 0.9rem;
                 }
                 
                 .closed {
-                    color: ${theme.colors.status_closed};
+                    color: ${colorsToApply.status_closed};
                 }
                 
                 .footer {
-                    background-color: ${theme.colors.footer_background};
+                    background-color: ${colorsToApply.footer_background};
                     color: white;
                     padding: 30px 0;
                     text-align: center;
@@ -300,7 +308,7 @@
                     width: 35px;
                     height: 35px;
                     border-radius: 50%;
-                    background-color: ${theme.colors.social_icon_background};
+                    background-color: ${colorsToApply.social_icon_background};
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -310,7 +318,7 @@
                 }
                 
                 .social-icon:hover {
-                    background-color: ${theme.colors.primary};
+                    background-color: ${colorsToApply.primary};
                 }
                 
                 .copyright {
@@ -342,8 +350,8 @@
             // 3. Montar o Logo Frame (com texto e botões)
             const logoFrame = document.getElementById('logo-frame');
             logoFrame.innerHTML = `
-                <h1 class="logo-title">${data.profile.title}</h1> <!-- ALTERADO: de data.profile.name para data.profile.title -->
-                <p class="logo-tagline">${data.profile.description}</p> <!-- ALTERADO: de data.profile.tagline para data.profile.description -->
+                <h1 class="logo-title">${data.profile.title}</h1>
+                <p class="logo-tagline">${data.profile.description}</p>
                 <div class="contact-buttons">
                     <a href="https://wa.me/${data.profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
