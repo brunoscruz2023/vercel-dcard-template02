@@ -78,7 +78,7 @@
   },
   "theme_config": {
     "enabled": true,
-    "mode": "light",
+    "mode": "dark",
     "light": {
       "background": "#f5f5f5",
       "text": "#333333",
@@ -109,3 +109,4 @@
     }
   }
 }
+
