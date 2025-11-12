@@ -154,6 +154,14 @@
                     margin-bottom: 25px;
                     color: ${colorsToApply.text_secondary};
                 }
+
+                /* NOVA CLASSE PARA O ENDEREÇO */
+                .profile-address {
+                    font-size: 0.9rem;
+                    margin-bottom: 20px;
+                    color: ${colorsToApply.text_secondary};
+                    line-height: 1.4;
+                }
                 
                 .contact-buttons {
                     display: flex;
@@ -329,7 +337,7 @@
             styleTag.innerHTML = css;
         }
 
-        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
+        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (COM ENDEREÇO)
         function buildPage(data) {
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
@@ -347,11 +355,12 @@
                 logoImageFrame.innerHTML = ''; // Oculta completamente se for false
             }
 
-            // 3. Montar o Logo Frame (com texto e botões)
+            // 3. Montar o Logo Frame (com texto, endereço e botões)
             const logoFrame = document.getElementById('logo-frame');
             logoFrame.innerHTML = `
                 <h1 class="logo-title">${data.profile.title}</h1>
                 <p class="logo-tagline">${data.profile.description}</p>
+                ${data.profile.address ? `<p class="profile-address">${data.profile.address}</p>` : ''}
                 <div class="contact-buttons">
                     <a href="https://wa.me/${data.profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
