@@ -57,9 +57,9 @@
             }
         }
 
-        // Função para aplicar os estilos do tema (ATUALIZADA COM LÓGICA DE TEMAS)
+        // Função para aplicar os estilos do tema (ATUALIZADA COM SELETOR ESPECÍFICO)
         function applyTheme(theme, themeConfig) {
-            // LÓGICA PARA SELECIONAR O TEMA
+            // LÓGICA PARA SELECIONAR O TEMA CORRETO
             let colorsToApply;
             if (themeConfig && themeConfig.enabled) {
                 colorsToApply = themeConfig[themeConfig.mode];
@@ -143,7 +143,8 @@
                     text-align: center;
                 }
 
-                .logo-title {
+                /* SELETOR ESPECÍFICO PARA GARANTIR A APLICAÇÃO */
+                #logo-frame .logo-title {
                     font-size: 2rem;
                     margin-bottom: 4px; /* ALTERADO: de 8px para 4px */
                     color: ${colorsToApply.text};
@@ -151,16 +152,8 @@
                 
                 .logo-tagline {
                     font-size: 1.2rem;
-                    margin-bottom: 12px; /* ALTERADO: de 25px para 12px */
+                    margin-bottom: 12px; /* ALTERADO: de 25px para 12.5px */
                     color: ${colorsToApply.text_secondary};
-                }
-
-                /* NOVA CLASSE PARA O ENDEREÇO */
-                .profile-address {
-                    font-size: 0.9rem;
-                    margin-bottom: 10px; /* ALTERADO: de 20px para 10px */
-                    color: ${colorsToApply.text_secondary};
-                    line-height: 1.4;
                 }
                 
                 .contact-buttons {
@@ -240,6 +233,7 @@
                     text-align: left;
                 }
 
+                /* SELETOR ESPECÍFICO PARA GARANTIR A APLICAÇÃO */
                 .service-title {
                     font-size: 1.3rem;
                     margin: 0; /* Reset para anular margens padrão do navegador */
