@@ -9,6 +9,7 @@
       "shape": "round",
       "url": "logocodei9.png"
     },
+    "address": "Rua das Flores, 123 - Centro - Cidade, Estado",
     "contact": {
       "whatsapp": "5511912345678",
       "phone": "5511912345678"
@@ -78,7 +79,7 @@
   },
   "theme_config": {
     "enabled": true,
-    "mode": "dark",
+    "mode": "light",
     "light": {
       "background": "#f5f5f5",
       "text": "#333333",
@@ -109,4 +110,3 @@
     }
   }
 }
-
