@@ -57,9 +57,9 @@
             }
         }
 
-        // Função para aplicar os estilos do tema (ATUALIZADA COM SELETOR ESPECÍFICO)
+        // Função para aplicar os estilos do tema (ATUALIZADA COM ESPAÇAMENTOS CORRIGIDOS)
         function applyTheme(theme, themeConfig) {
-            // LÓGICA PARA SELECIONAR O TEMA CORRETO
+            // LÓGICA PARA SELECIONAR O TEMA
             let colorsToApply;
             if (themeConfig && themeConfig.enabled) {
                 colorsToApply = themeConfig[themeConfig.mode];
@@ -73,7 +73,7 @@
                     margin: 0;
                     padding: 0;
                     box-sizing: border-box;
-                    font-family: ${theme.font_family};
+                    font-family: ${colorsToApply.font_family};
                 }
                 
                 body {
@@ -143,23 +143,31 @@
                     text-align: center;
                 }
 
-                /* SELETOR ESPECÍFICO PARA GARANTIR A APLICAÇÃO */
-                #logo-frame .logo-title {
+                .logo-title {
                     font-size: 2rem;
-                    margin-bottom: 4px; /* ALTERADO: de 8px para 4px */
+                    margin-bottom: 4px; /* CORRIGIDO: de 8px para 4px */
                     color: ${colorsToApply.text};
                 }
                 
                 .logo-tagline {
                     font-size: 1.2rem;
-                    margin-bottom: 12px; /* ALTERADO: de 25px para 12.5px */
+                    margin-bottom: 12.5px; /* CORRIGIDO: de 25px para 12.5px */
                     color: ${colorsToApply.text_secondary};
+                }
+                
+                /* NOVA CLASSE PARA O ENDEREÇO */
+                .profile-address {
+                    font-size: 0.9rem;
+                    margin-bottom: 10px; /* CORRIGIDO: de 20px para 10px */
+                    color: ${colorsToApply.text_secondary};
+                    line-height: 1.4;
                 }
                 
                 .contact-buttons {
                     display: flex;
                     justify-content: center;
                     gap: 15px;
+                    margin-bottom: 12.5px; /* CORRIGIDO: de 25px para 12.5px */
                 }
                 
                 .contact-btn {
@@ -190,7 +198,7 @@
                 /* --- ESTILOS DO CONTEÚDO --- */
                 
                 .section-title {
-                    text-align: left; /* Alinhado à esquerda */
+                    text-align: left;
                     font-size: 1.8rem;
                     margin-bottom: 12px;
                     color: ${colorsToApply.text};
@@ -233,7 +241,6 @@
                     text-align: left;
                 }
 
-                /* SELETOR ESPECÍFICO PARA GARANTIR A APLICAÇÃO */
                 .service-title {
                     font-size: 1.3rem;
                     margin: 0; /* Reset para anular margens padrão do navegador */
@@ -331,7 +338,7 @@
             styleTag.innerHTML = css;
         }
 
-        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (COM ENDEREÇO)
+        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES
         function buildPage(data) {
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
