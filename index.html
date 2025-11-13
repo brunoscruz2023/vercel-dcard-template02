@@ -187,12 +187,25 @@
                     color: ${colorsToApply.text_secondary};
                 }
 
-                /* NOVA CLASSE PARA O ENDEREÇO */
-                .profile-address {
+                /* NOVA CLASSE PARA O ENDEREÇO CLICÁVEL */
+                .profile-address-link {
                     font-size: 0.9rem;
                     margin-bottom: 20px;
                     color: ${colorsToApply.text_secondary};
                     line-height: 1.4;
+                    text-decoration: none; /* Remove o sublinhado do link */
+                    display: inline-flex; /* Alinha ícone e texto */
+                    align-items: center;
+                    gap: 8px; /* Espaço entre ícone e texto */
+                    transition: color 0.3s ease;
+                }
+
+                .profile-address-link:hover {
+                    color: ${colorsToApply.primary}; /* Muda a cor no hover para dar feedback */
+                }
+
+                .profile-address-link i {
+                    font-size: 1rem; /* Ícone um pouco maior para destaque */
                 }
                 
                 .contact-buttons {
@@ -416,10 +429,18 @@
 
             // 3. Montar o Logo Frame (com texto, endereço e botões)
             const logoFrame = document.getElementById('logo-frame');
+
+            // NOVO: Criar o elemento de endereço como um link clicável
+            const addressElement = data.profile.address ? `
+                <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.profile.address)}" target="_blank" class="profile-address-link">
+                    <i class="fas fa-map-marker-alt"></i> ${data.profile.address}
+                </a>
+            ` : '';
+
             logoFrame.innerHTML = `
                 <h1 class="logo-title">${data.profile.title}</h1>
                 <p class="logo-tagline">${data.profile.description}</p>
-                ${data.profile.address ? `<p class="profile-address">${data.profile.address}</p>` : ''}
+                ${addressElement}
                 <div class="contact-buttons">
                     <a href="https://wa.me/${data.profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
