@@ -10,9 +10,6 @@
     <style id="dynamic-styles"></style>
 </head>
 <body>
-    <!-- NOVO FRAME DE OVERLAY -->
-    <div id="background-overlay-frame"></div>
-
     <!-- NOVA ESTRUTURA DE FRAMES -->
     
     <!-- Frame 1: Hero com imagem de fundo -->
@@ -86,34 +83,9 @@
                     max-width: 480px;
                     margin: 0 auto;
                     min-height: 100vh;
-                    position: relative; /* IMPORTANTE: Para conter o overlay */
                 }
 
-                /* --- ESTILOS DO NOVO BACKGROUND OVERLAY --- */
-                #background-overlay-frame {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: 1; /* Abaixo do conteúdo, acima do fundo */
-                    pointer-events: none; /* Garante que não bloqueie cliques no conteúdo */
-                    overflow: hidden; /* Garante que o ::before não vaze */
-                }
-
-                #background-overlay-frame::before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-
-                /* --- ESTILOS DOS FRAMES EXISTENTES --- */
+                /* --- ESTILOS DOS FRAMES --- */
 
                 #hero-frame {
                     height: 300px;
@@ -121,8 +93,6 @@
                     background-position: center;
                     background-repeat: no-repeat;
                     width: 100%;
-                    position: relative; /* Garante que fique acima do overlay */
-                    z-index: 2;
                 }
 
                 /* FRAME APENAS PARA A LOGO */
@@ -171,8 +141,6 @@
                     padding: 15px 15px;
                     margin-top: 1px;
                     text-align: center;
-                    position: relative; /* Garante que fique acima do overlay */
-                    z-index: 2;
                 }
 
                 .logo-title {
@@ -224,8 +192,6 @@
 
                 #info-frame {
                     padding: 20px 0 40px 0;
-                    position: relative; /* Garante que fique acima do overlay */
-                    z-index: 2;
                 }
                 
                 /* --- ESTILOS DO CONTEÚDO --- */
@@ -374,30 +340,8 @@
             styleTag.innerHTML = css;
         }
 
-        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (COM ENDEREÇO E OVERLAY)
+        // FUNÇÃO PARA MONTAR A PÁGINA NOS FRAMES (COM ENDEREÇO)
         function buildPage(data) {
-            // 0. Montar o Background Overlay Frame (NOVO)
-            const overlayFrame = document.getElementById('background-overlay-frame');
-            const styleTag = document.getElementById('dynamic-styles');
-            if (data.background_overlay && data.background_overlay.visible) {
-                // Aplica a cor de fundo ao frame principal
-                overlayFrame.style.backgroundColor = data.background_overlay.background_color;
-
-                // Cria e injeta o CSS para o pseudo-elemento ::before
-                const overlayCSS = `
-                    #background-overlay-frame::before {
-                        background-image: url('${data.background_overlay.background_image_url}');
-                        opacity: ${data.background_overlay.background_image_opacity};
-                    }
-                `;
-                // Adiciona o CSS do overlay ao final da tag de estilos dinâmicos
-                styleTag.innerHTML += overlayCSS;
-
-            } else {
-                // Se não for visível, remove o frame do fluxo para não ocupar espaço
-                overlayFrame.style.display = 'none';
-            }
-
             // 1. Montar o Hero Frame
             const heroFrame = document.getElementById('hero-frame');
             heroFrame.style.backgroundImage = `url(${data.profile.hero_image})`;
@@ -424,7 +368,7 @@
                     <a href="https://wa.me/${data.profile.contact.whatsapp}" target="_blank" class="contact-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="tel:${data.profile.contact.phone}" class="contact-btn call-btn">
+                    <a href="tel:${data.profile.phone}" class="contact-btn call-btn">
                         <i class="fas fa-phone"></i> Ligar
                     </a>
                 </div>
