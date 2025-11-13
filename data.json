@@ -101,9 +101,9 @@
       "hero_overlay": "rgba(0, 0, 0, 0.3)"
     },
     "dark": {
-      "background": "#333333",
+      "background": "#121212",
       "text": "#f0f0f0",
-      "card_background": "#121212",
+      "card_background": "#333333",
       "primary": "#0d6efd",
       "primary_hover": "#0b5ed7",
       "whatsapp": "#25d366",
@@ -116,4 +116,5 @@
     }
   }
 }
+
 
