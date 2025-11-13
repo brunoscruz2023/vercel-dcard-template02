@@ -60,6 +60,12 @@
   "footer": {
     "copyright": "© 2023 Tranquil Touch Therapy. Todos os direitos reservados."
   },
+  "background_overlay": {
+    "visible": true,
+    "background_color": "rgba(255, 255, 255, 0.4)",
+    "background_image_url": "https://www.transparenttextures.com/patterns/cubes.png",
+    "background_image_opacity": 0.2
+  },
   "theme": {
     "font_family": "Manrope, sans-serif",
     "colors": {
