@@ -64,7 +64,7 @@
     "visible": true,
     "background_color": "transparent",
     "background_image_url": "bg3light.png",
-    "background_image_opacity": 0.2
+    "background_image_opacity": 0.5
   },
   "theme": {
     "font_family": "Manrope, sans-serif",
@@ -116,6 +116,7 @@
     }
   }
 }
+
 
 
 
