@@ -63,7 +63,7 @@
   "background_overlay": {
     "visible": true,
     "background_color": "transparent",
-    "background_image_url": "https://www.transparenttextures.com/patterns/cubes.png",
+    "background_image_url": "bg3light.png",
     "background_image_opacity": 0.2
   },
   "theme": {
@@ -116,5 +116,6 @@
     }
   }
 }
+
 
 
