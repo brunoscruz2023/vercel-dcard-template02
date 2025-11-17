@@ -63,7 +63,7 @@
   "background_overlay": {
     "visible": true,
     "background_color": "transparent",
-    "background_image_url": "bg3light.png",
+    "background_image_url": "bg3light660x3200.webp",
     "background_image_opacity": 0.5
   },
   "theme": {
@@ -116,6 +116,7 @@
     }
   }
 }
+
 
 
 
