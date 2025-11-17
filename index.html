@@ -10,7 +10,7 @@
     <style id="dynamic-styles"></style>
 </head>
 <body>
-    <!-- Frame 1: Hero com imagem de fundo (AGORA FORA DO WRAPPER) -->
+    <!-- Frame 1: Hero com imagem de fundo (FORA DO WRAPPER) -->
     <div id="hero-frame">
         <!-- Conteúdo gerado via CSS (background-image) -->
     </div>
@@ -88,6 +88,11 @@
                     margin: 0 auto;
                     min-height: 100vh;
                     position: relative; /* IMPORTANTE: Para conter o overlay */
+                }
+
+                /* ESTA É A REGRA CRUCIAL QUE ESTAVA FALTANDO */
+                .content-wrapper {
+                    position: relative; /* Faz o wrapper ser a referência de posicionamento */
                 }
 
                 /* --- ESTILOS DO NOVO BACKGROUND OVERLAY --- */
