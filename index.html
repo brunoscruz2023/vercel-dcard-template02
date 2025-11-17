@@ -10,29 +10,30 @@
     <style id="dynamic-styles"></style>
 </head>
 <body>
-    <!-- NOVO FRAME DE OVERLAY -->
-    <div id="background-overlay-frame"></div>
-
-    <!-- NOVA ESTRUTURA DE FRAMES -->
-    
-    <!-- Frame 1: Hero com imagem de fundo -->
+    <!-- Frame 1: Hero com imagem de fundo (AGORA FORA DO WRAPPER) -->
     <div id="hero-frame">
         <!-- Conteúdo gerado via CSS (background-image) -->
     </div>
 
-    <!-- Frame 2: Apenas a imagem da logo (sobrepondo o hero) -->
-    <div id="logo-image-frame">
-        <!-- Conteúdo gerado pelo JavaScript -->
-    </div>
+    <!-- NOVO WRAPPER PARA O CONTEÚDO COM OVERLAY -->
+    <div class="content-wrapper">
+        <!-- FRAME DE OVERLAY AGORA ESTÁ AQUI DENTRO -->
+        <div id="background-overlay-frame"></div>
 
-    <!-- Frame 3: Logo e informações de contato (agora abaixo da logo) -->
-    <div id="logo-frame">
-        <!-- Conteúdo gerado pelo JavaScript -->
-    </div>
+        <!-- Frame 2: Apenas a imagem da logo (sobrepondo o hero) -->
+        <div id="logo-image-frame">
+            <!-- Conteúdo gerado pelo JavaScript -->
+        </div>
 
-    <!-- Frame 4: Conteúdo principal (serviços, horário, rodapé) -->
-    <div id="info-frame">
-        <!-- Conteúdo gerado pelo JavaScript -->
+        <!-- Frame 3: Logo e informações de contato (agora abaixo da logo) -->
+        <div id="logo-frame">
+            <!-- Conteúdo gerado pelo JavaScript -->
+        </div>
+
+        <!-- Frame 4: Conteúdo principal (serviços, horário, rodapé) -->
+        <div id="info-frame">
+            <!-- Conteúdo gerado pelo JavaScript -->
+        </div>
     </div>
 
     <script>
